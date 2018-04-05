@@ -104,7 +104,10 @@ Many, many techniques!
 
 # A personalized report on a variant
 
-<img src="image/23andme2.png" height = "400px">
+```{r out.height="60%", echo=FALSE}
+knitr::include_graphics("image/23andme2.png")
+```
+
 
 .footnote[https://permalinks.23andme.com/pdf/samplereport_genetichealth.pdf]
 
@@ -112,7 +115,9 @@ Many, many techniques!
 
 # What else matters in Alzheimer's?
 
-<img src="image/23andme4.png" height = "400px">
+```{r out.height="60%", echo=FALSE}
+knitr::include_graphics("image/23andme4.png")
+```
 
 .footnote[https://permalinks.23andme.com/pdf/samplereport_genetichealth.pdf]
 
