@@ -1,26 +1,24 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Introduction to Bioinformatics</title>
-    <meta charset="utf-8">
-    <meta name="author" content="Ted Laderas" />
-    <link href="libs/remark-css/default.css" rel="stylesheet" />
-    <link href="libs/remark-css/metropolis.css" rel="stylesheet" />
-    <link href="libs/remark-css/metropolis-fonts.css" rel="stylesheet" />
-  </head>
-  <body>
-    <textarea id="source">
-class: center, middle, inverse, title-slide
-
-# Introduction to Bioinformatics
-## HSMP 410: Health Informatics
-### Ted Laderas
-### 4/3/2018
-
+---
+title: "Introduction to Bioinformatics"
+subtitle: "HSMP 410: Health Informatics"
+author: "Ted Laderas"
+date: "4/3/2018"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    css: [default, metropolis, metropolis-fonts]
+    chakra: libs/remark-latest.min.js
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
 ---
 
-
-
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE, echo=FALSE)
+library(tidyverse)
+theme_set(theme_classic(base_size = 20))
+```
 
 # What we'll do today
 
@@ -98,7 +96,7 @@ Many, many techniques!
 
 # Let's look at one example - 23andMe
 
-&lt;img src="image/23andme1.png" height = "400px"&gt;
+<img src="image/23andme1.png" height = "400px">
 
 .footnote[https://www.23andme.com/howitworks/]
 
@@ -106,7 +104,7 @@ Many, many techniques!
 
 # A personalized report on a variant
 
-&lt;img src="image/23andme2.png" height = "400px"&gt;
+<img src="image/23andme2.png" height = "400px">
 
 .footnote[https://permalinks.23andme.com/pdf/samplereport_genetichealth.pdf]
 
@@ -114,7 +112,7 @@ Many, many techniques!
 
 # What else matters in Alzheimer's?
 
-&lt;img src="image/23andme4.png" height = "400px"&gt;
+<img src="image/23andme4.png" height = "400px">
 
 .footnote[https://permalinks.23andme.com/pdf/samplereport_genetichealth.pdf]
 
@@ -132,7 +130,7 @@ Genome Wide Association Studies (GWAS)
 
 Need to look across a population to answer this question! ] 
 
-.pull-right[&lt;img src="image/gwas_infographic.jpg" height = "100%" width="100%"&gt;
+.pull-right[<img src="image/gwas_infographic.jpg" height = "100%" width="100%">
 
 ]
 .footnote[https://www.genome.gov/20019523/genomewide-association-studies-fact-sheet/]
@@ -146,7 +144,7 @@ Need to look across a population to answer this question! ]
 
 # DNA Structure
 
-&lt;img src="image/dnaStructure.jpg" height = "500px"&gt;
+<img src="image/dnaStructure.jpg" height = "500px">
 
 .footnote[https://cnx.org/contents/8v2Xzdco@3/The-Structure-of-DNA]
 
@@ -163,8 +161,8 @@ Our *coding strand* is paired with another one, called a *complementary strand*,
 We'll only consider the *coding strand* for right now.
 ]
 
-.pull-right[&lt;img src="image/AT_base_pair_jypx3.png" height = "230px"&gt;
-&lt;img src="image/GC_base_pair_jypx3.png" height = "230px"&gt;]
+.pull-right[<img src="image/AT_base_pair_jypx3.png" height = "230px">
+<img src="image/GC_base_pair_jypx3.png" height = "230px">]
 
 .footnote[https://en.wikipedia.org/wiki/Complementarity_(molecular_biology)]
 ---
@@ -179,7 +177,7 @@ We'll only consider the *coding strand* for right now.
 
 By definition, a *SNP* has to occur in at least 10% of the population being studied. This is in comparison to the base that is most frequently observed, which is called the *wild-type*.]
 
-.pull-right[&lt;img src="image/snpDavidHall.png" height="100%" width="100%"&gt;
+.pull-right[<img src="image/snpDavidHall.png" height="100%" width="100%">
 ]
 .footnote[Snp Image by David Hall / CC Licensed]
 ---
@@ -208,37 +206,17 @@ For example, if my dad gave me a copy (allele) with an A, and my mom gave me a c
 So, if we were interested in the T SNP variant where the *wild-type* is A, we'll look at those individuals that had at least one T (TT and AT) as one category, and the other where it's the wild-type, or what the majority of the population has (AA).]
 
 .pull-right[
-&lt;table&gt;
-&lt;tbody&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; TT &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 10 &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; AT &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 100 &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; AA &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 300 &lt;/td&gt;
-  &lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
+```{r echo=FALSE}
+geno1 = c("TT"=10, "AT"=100, "AA"=300)
+knitr::kable(geno1,format = "html", col.names = NULL)
+```
 
 Becomes
 
-&lt;table&gt;
-&lt;tbody&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; T &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 110 &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; A &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 300 &lt;/td&gt;
-  &lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
+```{r echo=FALSE}
+geno2 = c("T"=110, "A"=300)
+knitr::kable(geno2,format = "html",col.names = NULL)
+```
 ]
 
 ---
@@ -249,18 +227,10 @@ Becomes
 
 What is the variant in this table?
 
-&lt;table&gt;
-&lt;tbody&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; T &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 110 &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; A &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 300 &lt;/td&gt;
-  &lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
+```{r echo=FALSE}
+geno2 = c("T"=110, "A"=300)
+knitr::kable(geno2,format = "html",col.names = NULL)
+```
 ---
 
 # Quiz yourself
@@ -273,18 +243,10 @@ C) Both
 
 What is the *variant* in this table?
 
-&lt;table&gt;
-&lt;tbody&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; C &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 36 &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; T &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 300 &lt;/td&gt;
-  &lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
+```{r echo = FALSE, fig.align='left'}
+geno2 = c("C"=36, "T"=300)
+knitr::kable(geno2,format = "html",col.names = NULL)
+```
 
 ---
 layout: false
@@ -301,7 +263,7 @@ layout: false
     - Is there a quantitative cutoff?
     - For example: Obesity and Body Mass Index (BMI)]
     
-.pull-right[&lt;img src="image/bmi-histogram.png" height="100%" width="100%"&gt;]
+.pull-right[<img src="image/bmi-histogram.png" height="100%" width="100%">]
 
 .footnote[https://thomaselove.github.io/431notes/dataviz.html]
 ---
@@ -329,7 +291,9 @@ We can do better in recruiting diverse populations!
 + [Genomics is Failing on Diversity](https://www.nature.com/news/genomics-is-failing-on-diversity-1.20759)]
 
 .pull-right[
-&lt;img src="image/genomics_ethnicity.jpg" height="500px" /&gt;
+```{r out.height="500px", echo=FALSE}
+knitr::include_graphics("image/genomics_ethnicity.jpg")
+```
 ]
 ---
 
@@ -346,7 +310,10 @@ d) TV show preference
 
 # Association
 
-&lt;img src="image/gwas_infographic.jpg" height="500px" style="display: block; margin: auto;" /&gt;
+```{r fig.align='center', out.height="500px", echo=FALSE}
+knitr::include_graphics("image/gwas_infographic.jpg")
+
+```
 
 .footnote[https://www.genome.gov/20019523/genomewide-association-studies-fact-sheet/]
 ---
@@ -361,27 +328,15 @@ We want to quantify how good our test is. Much like in epidemiology, we will con
 ---
 # 2x2 Tables for Genotype/Phenotype Association
 
-&lt;table&gt;
- &lt;thead&gt;
-  &lt;tr&gt;
-   &lt;th style="text-align:left;"&gt;   &lt;/th&gt;
-   &lt;th style="text-align:right;"&gt; Disease+ &lt;/th&gt;
-   &lt;th style="text-align:right;"&gt; Disease- &lt;/th&gt;
-  &lt;/tr&gt;
- &lt;/thead&gt;
-&lt;tbody&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; SNP+ &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 20 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 5 &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; SNP- &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 100 &lt;/td&gt;
-  &lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
+```{r echo =FALSE}
+dat <- c(20, 5, 4, 100)
+
+mat <- matrix(data = dat, nrow = 2,byrow = TRUE)
+colnames(mat) <- c("Disease+", "Disease-")
+rownames(mat) <- c("SNP+", "SNP-")
+
+knitr::kable(mat, format="html")
+```
 
 - Relate genetic variations (SNPs) to disease, one position at a time
     - **(SNP+/Disease+)**
@@ -394,7 +349,7 @@ We want to quantify how good our test is. Much like in epidemiology, we will con
 
 Are the proportions of people who have the SNP in the case (Disease+) and control (Disease-) the same?
 
-&lt;img src="image/640px-Method_example_for_GWA_study_designs.png" height="400px"&gt;
+<img src="image/640px-Method_example_for_GWA_study_designs.png" height="400px">
 
 .footnote[By Lasse Folkersen - Own work, CC BY 3.0, https://commons.wikimedia.org/w/index.php?curid=18062562]
 ---
@@ -404,14 +359,23 @@ Here is the 2x2 table and a proportional barplot, where we are looking at the di
 
 Just looking at the barplot, do you think there is a difference in the proportions between Disease+ and Disease-?
 
-
+```{r echo=FALSE}
+tabFrame <- data.frame(mat, SNP=row.names(mat), check.names = FALSE) %>% tidyr::gather(Disease, count, -SNP) %>%
+  mutate(SNP=ordered(SNP, levels=c('SNP-', "SNP+")), Disease=ordered(Disease, levels=c("Disease+","Disease-"))) 
+```
 
 .pull-left[
-![](index_files/figure-html/unnamed-chunk-9-1.png)&lt;!-- --&gt;
+```{r echo=FALSE}
+tabFrame %>% ggplot(aes(x=Disease, y=SNP)) + geom_tile(fill="white", colour="black") + 
+  geom_text(aes(label=count), size=20) + scale_x_discrete(position = "top")
+```
   ]
 
 .pull-right[
-![](index_files/figure-html/unnamed-chunk-10-1.png)&lt;!-- --&gt;
+```{r echo=FALSE}
+tabFrame %>%
+  ggplot(aes(x=Disease, y=count, fill=SNP)) + geom_col(position="fill", color="black")
+```
 ]
 
 ---
@@ -424,7 +388,7 @@ We need to set a very small criteria of significance.
 
 Then we scan across the genome and find the really small p-values:
 
-&lt;img src="image/Manhattan_Plot.png" height = "375px"&gt;
+<img src="image/Manhattan_Plot.png" height = "375px">
 .footnote[https://en.wikipedia.org/wiki/Manhattan_plot#/media/File:Manhattan_Plot.png]
 
 ---
@@ -435,11 +399,11 @@ Odds Ratio (OR): Very useful measure for assessing degree of association between
 
 Estimate of how different the proportions of SNP+ between Disease+ and Disease-
 
-- OR &gt; 1: Disease/SNP association
+- OR > 1: Disease/SNP association
       - This is what we're usually looking for in GWAS
       - If the OR is 2, my odds are 2:1 that I am (Disease+) compared to being (Disease-) if I have the variant (SNP+)
 - OR = 1: There is no association between having the disease and the SNP variant
-- OR &lt; 1: Having the SNP variant means you are less likely to have disease
+- OR < 1: Having the SNP variant means you are less likely to have disease
       - Protective effect: also interesting
 
 ---
@@ -465,54 +429,10 @@ Each of you will pick a SNP to Investigate.
 
 Fill out the Google Form here: http://bit.ly/hsmp410snp
 
-&lt;table&gt;
- &lt;thead&gt;
-  &lt;tr&gt;
-   &lt;th style="text-align:right;"&gt; Number &lt;/th&gt;
-   &lt;th style="text-align:left;"&gt; Phenotype &lt;/th&gt;
-   &lt;th style="text-align:left;"&gt; SNP.name &lt;/th&gt;
-   &lt;th style="text-align:left;"&gt; Variant &lt;/th&gt;
-  &lt;/tr&gt;
- &lt;/thead&gt;
-&lt;tbody&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Obesity &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; rs7185735 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; G &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:right;"&gt; 2 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Obesity &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; rs1421085 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; C &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:right;"&gt; 3 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Cardiovascular Risk &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; rs6843082 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; G &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:right;"&gt; 4 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Cardiovascular Risk &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; rs6025 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; T &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:right;"&gt; 5 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Type 2 Diabetes Mellitus &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; rs7903146 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; T &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:right;"&gt; 6 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Scoliosis &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; rs11190870 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; T &lt;/td&gt;
-  &lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
+```{r echo = FALSE}
+tab <- read.delim("1.2snps.txt")
+knitr::kable(tab, format = "html")
+```
 
 Important: to be graded for this assignment, must provide your name on the Google Form!
 
@@ -560,40 +480,3 @@ We need to do further investigations of these regions to narrow the cause down.
     - Clinicians
     - Consumers
 - Need for transparent and open science!
-    </textarea>
-<script src="libs/remark-latest.min.js"></script>
-<script>var slideshow = remark.create({
-"highlightStyle": "github",
-"highlightLines": true,
-"countIncrementalSlides": false
-});
-if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
-  window.dispatchEvent(new Event('resize'));
-});
-(function() {
-  var d = document, s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
-  if (!r) return;
-  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
-  d.head.appendChild(s);
-})();</script>
-
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
-  }
-});
-</script>
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-(function () {
-  var script = document.createElement('script');
-  script.type = 'text/javascript';
-  script.src  = 'https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML';
-  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
-    script.src  = script.src.replace(/^https?:/, '');
-  document.getElementsByTagName('head')[0].appendChild(script);
-})();
-</script>
-  </body>
-</html>
