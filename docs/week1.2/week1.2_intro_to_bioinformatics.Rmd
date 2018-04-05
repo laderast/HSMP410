@@ -1,0 +1,482 @@
+---
+title: "Introduction to Bioinformatics"
+subtitle: "HSMP 410: Health Informatics"
+author: "Ted Laderas"
+date: "4/3/2018"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    css: [default, metropolis, metropolis-fonts]
+    chakra: libs/remark-latest.min.js
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE, echo=FALSE)
+library(tidyverse)
+theme_set(theme_classic(base_size = 20))
+```
+
+# What we'll do today
+
++ What is the Goal of Bioinformatics?
++ Simple Genetics
++ Simple Phenotyping
++ Genome Wide Association
++ In-Class Activity
++ Discussion
+
+---
+
+# What is Bioinformatics?
+
+Using informatics methods to connect biology (Genotypes) with Phenotypes
+
+- Biology (not just genes!)
+    - genomics
+    - gene expression, 
+    - immune system state
+    - gut bacteria (microbiome)
+- Phenotypes: A disease or trait of interest
+    - Type 2 Diabetes
+    - What are some others?
+
+---
+
+# What are these informatics methods?
+
+Many, many techniques! 
+
+- statistics 
+- systems science
+- machine learning
+- systems biology
+- visualization
+- knowledge integration
+
+---
+
+# What else do you have to know?
+
+- Basic Biology
+    - Biological Regulation
+- Basic Clinical Knowledge
+- Limitations of the technology used
+- Exciting (and stressful) because I learn new stuff everyday!
+- Most important quality: Curiosity!
+
+---
+
+# Learning Objectives (hint)
+
++ What is a SNP variant?
++ How do we define a disease of interest?
++ What is a Genome Wide Association Study (GWAS)?
+    - How do we look for association?
++ Why are Odds Ratios important?
+
+---
+# Some Definitions before we start
+
++ Phenotype:
+    - a condition we're interested in, such as disease
+    - can also be a trait, such as height or BMI
+    - varies across a population
++ Genotype:
+    - the genetic/biological makeup of a subject we're interested in,
+    - varies across a population
++ Treatment:
+    - what we can do about this given phenotype and genotype
+    - can be a drug or other kind of therapy (like chemotherapy)
+
+---
+
+# Let's look at one example - 23andMe
+
+<img src="image/23andme1.png" height = "400px">
+
+.footnote[https://www.23andme.com/howitworks/]
+
+---
+
+# A personalized report on a variant
+
+<img src="image/23andme2.png" height = "400px">
+
+.footnote[https://permalinks.23andme.com/pdf/samplereport_genetichealth.pdf]
+
+---
+
+# What else matters in Alzheimer's?
+
+<img src="image/23andme4.png" height = "400px">
+
+.footnote[https://permalinks.23andme.com/pdf/samplereport_genetichealth.pdf]
+
+---
+
+# How did we figure this out?
+
+Genome Wide Association Studies (GWAS)
+
+---
+
+# The Fundamental Question of GWAS
+
+.pull-left[If I have a variant in my DNA, am I more likely to have a disease?  
+
+Need to look across a population to answer this question! ] 
+
+.pull-right[<img src="image/gwas_infographic.jpg" height = "100%" width="100%">
+
+]
+.footnote[https://www.genome.gov/20019523/genomewide-association-studies-fact-sheet/]
+
+
+---
+
+# Genotype
+
+---
+
+# DNA Structure
+
+<img src="image/dnaStructure.jpg" height = "500px">
+
+.footnote[https://cnx.org/contents/8v2Xzdco@3/The-Structure-of-DNA]
+
+---
+
+# DNA Fun Facts
+
+.pull-left[DNA information in encoded in 4 bases (A,C,G,T)
+
+Each strand is made to read in a particular direction.
+
+Our *coding strand* is paired with another one, called a *complementary strand*, which is read in the opposite direction and has the complementary base.
+
+We'll only consider the *coding strand* for right now.
+]
+
+.pull-right[<img src="image/AT_base_pair_jypx3.png" height = "230px">
+<img src="image/GC_base_pair_jypx3.png" height = "230px">]
+
+.footnote[https://en.wikipedia.org/wiki/Complementarity_(molecular_biology)]
+---
+
+# What is a SNP?
+
+.pull-left[A *SNP* (Single Nucelotide Polymorphism) is a single location in the genome where we observe *variation across a population*. We need three pieces of information to characterize a SNP: 
+
+1. the chromosome it's on (chr 2)  
+2. the linear position on the chromosome (3490525)  
+3. the variant of interest (T)  
+
+By definition, a *SNP* has to occur in at least 10% of the population being studied. This is in comparison to the base that is most frequently observed, which is called the *wild-type*.]
+
+.pull-right[<img src="image/snpDavidHall.png" height="100%" width="100%">
+]
+.footnote[Snp Image by David Hall / CC Licensed]
+---
+# We use a lot of SNPs in GWAS
+
+Most GWAS use about 1 million of them!
+
+Highly dispersed across the genome
+
+---
+
+# Parents and Genetics
+
+Because we have two chromosomes (one from each parent), we will have two copies (values) at any SNP. Each of these copies is called an *allele*.
+
+Knowing the value of both copies is my *genotype* for that SNP. 
+
+For example, if my dad gave me a copy (allele) with an A, and my mom gave me a copy (allele) with a G, my genotype at that SNP location would be AG.
+
+---
+
+# A Simplification
+
+.pull-left[Let's just consider whether we have one or more of our variant of interest in our genotype.
+
+So, if we were interested in the T SNP variant where the *wild-type* is A, we'll look at those individuals that had at least one T (TT and AT) as one category, and the other where it's the wild-type, or what the majority of the population has (AA).]
+
+.pull-right[
+```{r echo=FALSE}
+geno1 = c("TT"=10, "AT"=100, "AA"=300)
+knitr::kable(geno1,format = "html", col.names = NULL)
+```
+
+Becomes
+
+```{r echo=FALSE}
+geno2 = c("T"=110, "A"=300)
+knitr::kable(geno2,format = "html",col.names = NULL)
+```
+]
+
+---
+# Working definitions
+
+*variant* - the less frequently observed base
+*wild-type* - the more frequently observed base
+
+What is the variant in this table?
+
+```{r echo=FALSE}
+geno2 = c("T"=110, "A"=300)
+knitr::kable(geno2,format = "html",col.names = NULL)
+```
+---
+
+# Quiz yourself
+
+If I am interested in individuals that have at least one T at Chromosome 2 at position 100430303, I am interested in:
+
+A) a SNP  
+B) a variant  
+C) Both  
+
+What is the *variant* in this table?
+
+```{r echo = FALSE, fig.align='left'}
+geno2 = c("C"=36, "T"=300)
+knitr::kable(geno2,format = "html",col.names = NULL)
+```
+
+---
+layout: false
+# Phenotyping
+
+---
+
+# Phenotyping: Disease Identification
+
+.pull-left[- May come from clinical diagnosis
+    - Needs to be clearly defined
+- Can be really difficult, especially in mental health
+- The more clearly we define these differences, the more successful we are
+    - Is there a quantitative cutoff?
+    - For example: Obesity and Body Mass Index (BMI)]
+    
+.pull-right[<img src="image/bmi-histogram.png" height="100%" width="100%">]
+
+.footnote[https://thomaselove.github.io/431notes/dataviz.html]
+---
+
+# You need to find patients 
+
+GWAS investigators need to find patients who are willing to participate in these studies.
+
+Where do they come from?
+
+- Clinician Referrals
+- Study Coordinators
+- Need to protect identity for privacy and ethical reasons
+
+---
+
+# Recruitment for a GWAS is Hard
+
+.pull-left[Way too much bias towards European/Caucasians in GWAS!
+
++ [Genomic Analysis Reveals Why Asthma Inhalers Fail Minority Children](https://www.ucsf.edu/news/2018/03/410041/genomic-analysis-reveals-why-asthma-inhalers-fail-minority-children)
+
+We can do better in recruiting diverse populations!
+
++ [Genomics is Failing on Diversity](https://www.nature.com/news/genomics-is-failing-on-diversity-1.20759)]
+
+.pull-right[
+```{r out.height="500px", echo=FALSE}
+knitr::include_graphics("image/genomics_ethnicity.jpg")
+```
+]
+---
+
+# Quiz Yourself
+
+Which of the following are phenotypes?
+
+a) BMI  
+b) A SNP  
+c) Schizophrenia  
+d) TV show preference
+
+---
+
+# Association
+
+```{r fig.align='center', out.height="500px", echo=FALSE}
+knitr::include_graphics("image/gwas_infographic.jpg")
+
+```
+
+.footnote[https://www.genome.gov/20019523/genomewide-association-studies-fact-sheet/]
+---
+
+# GWAS is a Test
+
+GWAS is a test of whether genotype (SNP) is predictive of phenotype (disease)
+
+Think of a SNP variant as being a diagnostic test.  
+
+We want to quantify how good our test is. Much like in epidemiology, we will construct a 2x2 table to find associations of genotypes and phenotypes.
+---
+# 2x2 Tables for Genotype/Phenotype Association
+
+```{r echo =FALSE}
+dat <- c(20, 5, 4, 100)
+
+mat <- matrix(data = dat, nrow = 2,byrow = TRUE)
+colnames(mat) <- c("Disease+", "Disease-")
+rownames(mat) <- c("SNP+", "SNP-")
+
+knitr::kable(mat, format="html")
+```
+
+- Relate genetic variations (SNPs) to disease, one position at a time
+    - **(SNP+/Disease+)**
+    - (SNP+/Disease-)
+    - (SNP-/Disease-)
+    - **(SNP-/Disease-)**
+
+---
+# Statistical Testing for Association
+
+Are the proportions of people who have the SNP in the case (Disease+) and control (Disease-) the same?
+
+<img src="image/640px-Method_example_for_GWA_study_designs.png" height="400px">
+
+.footnote[By Lasse Folkersen - Own work, CC BY 3.0, https://commons.wikimedia.org/w/index.php?curid=18062562]
+---
+# A difference in proportions
+
+Here is the 2x2 table and a proportional barplot, where we are looking at the difference between the proportions of SNP+ in the Disease+ versus Disease- cases.
+
+Just looking at the barplot, do you think there is a difference in the proportions between Disease+ and Disease-?
+
+```{r echo=FALSE}
+tabFrame <- data.frame(mat, SNP=row.names(mat), check.names = FALSE) %>% tidyr::gather(Disease, count, -SNP) %>%
+  mutate(SNP=ordered(SNP, levels=c('SNP-', "SNP+")), Disease=ordered(Disease, levels=c("Disease+","Disease-"))) 
+```
+
+.pull-left[
+```{r echo=FALSE}
+tabFrame %>% ggplot(aes(x=Disease, y=SNP)) + geom_tile(fill="white", colour="black") + 
+  geom_text(aes(label=count), size=20) + scale_x_discrete(position = "top")
+```
+  ]
+
+.pull-right[
+```{r echo=FALSE}
+tabFrame %>%
+  ggplot(aes(x=Disease, y=count, fill=SNP)) + geom_col(position="fill", color="black")
+```
+]
+
+---
+
+# Which SNPs are important?
+
+We scan each SNP, and conduct a statistical test of association to produce a p-value. 
+
+We need to set a very small criteria of significance. 
+
+Then we scan across the genome and find the really small p-values:
+
+<img src="image/Manhattan_Plot.png" height = "375px">
+.footnote[https://en.wikipedia.org/wiki/Manhattan_plot#/media/File:Manhattan_Plot.png]
+
+---
+
+# Odds Ratio
+
+Odds Ratio (OR): Very useful measure for assessing degree of association between disease and SNP variant.
+
+Estimate of how different the proportions of SNP+ between Disease+ and Disease-
+
+- OR > 1: Disease/SNP association
+      - This is what we're usually looking for in GWAS
+      - If the OR is 2, my odds are 2:1 that I am (Disease+) compared to being (Disease-) if I have the variant (SNP+)
+- OR = 1: There is no association between having the disease and the SNP variant
+- OR < 1: Having the SNP variant means you are less likely to have disease
+      - Protective effect: also interesting
+
+---
+
+# We need to repeat our study
+
+- Need to do a validation study in a separate population to confirm our associations. Why?
+
+---
+
+# Evidence to consider in a GWAS
+
+- For your SNP, what is the odds ratio?
+    - Rule of thumb: big OR is at least 2
+- How big was the population used in your study?
+- Who was the population used in your study?
+
+---
+
+# In-Class Assignment
+
+Each of you will pick a SNP to Investigate.
+
+Fill out the Google Form here: http://bit.ly/hsmp410snp
+
+```{r echo = FALSE}
+tab <- read.delim("1.2snps.txt")
+knitr::kable(tab, format = "html")
+```
+
+Important: to be graded for this assignment, must provide your name on the Google Form!
+
+---
+
+# Discussion
+
+1) How confident were you in your SNP variant?  
+2) What evidence made you feel confident/less confident?  
+
+---
+
+# Our statistics needs to be better
+
+- There are a lot of SNPs: over 3 million!
+- Need to worry about false associations
+
+---
+# One Caveat
+
+We may find a region associated with our disease, but it's not the same as knowing the mechanism.
+
+We need to do further investigations of these regions to narrow the cause down.
+
+[How to Follow up on a GWAS](https://bitesizebio.com/31276/gwas-genome-wide-association-study/)
+
+---
+# Single gene SNPs are not enough
+
+- Systems biology: 
+    - understanding how the interaction between genes leads to disease  
+- Pathways: 
+    - knowledge of how multiple genes interact  
+- Polygenic Risk Scores (multiple genes and SNPs)
+    - Use multiple SNPs as a test
+
+---
+
+# Open Questions
+
+- How do we make GWAS more equitable to all?  
+    - Ethical issues of privacy and equitability
+- How do we make SNP information accessible and understandable?
+- Need to make lots of information readily understandable
+    - Clinicians
+    - Consumers
+- Need for transparent and open science!
