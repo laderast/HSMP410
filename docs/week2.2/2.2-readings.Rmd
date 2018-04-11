@@ -1,0 +1,28 @@
+---
+title: "Week 2.2 Reading Assignment"
+author: "Ted Laderas"
+date: "4/9/2018"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Take a look at the following links and material.
+
+1. Why do genomics? https://discoveringthegenome.org/discovering-genome/what-genomics-why-do-genomics/health
+
+1. What are proteins and what do they do? https://ghr.nlm.nih.gov/primer/howgeneswork/protein
+
+1. How do genes direct the production of proteins? https://ghr.nlm.nih.gov/primer/howgeneswork/makingprotein
+
+1. Interactive Presentation about Central Dogma and Genetic Medicine: http://www.hhmi.org/biointeractive/central-dogma-and-genetic-medicine
+
+1. Intro to sequencing: https://discoveringthegenome.org/discovering-genome/dna-sequencing/sequencing-synthesis
+
+As you are reading the material, keep the following questions in mind:
+
+1. What are proteins and how are they made in the body?
+1. How can protein function be disrupted?
+1. What is a mutation? How can mutations disrupt protein functions?
