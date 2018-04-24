@@ -1,0 +1,100 @@
+---
+title: "A Guided Tour Through Data Science"
+author: "Ted Laderas"
+date: "`r Sys.Date()`"
+output: 
+  html_document:
+    self_contained: false
+---
+
+```{r global_options, include=FALSE}
+#knitr::opts_chunk$set(fig.width=5, fig.height=4,warning=FALSE, message=FALSE)
+```
+
+```{r, include=FALSE}
+tutorial::go_interactive()
+```
+
+## What We'll do today
+
+- Look at missing values and remove them
+- Calculate new variables based on other variables in our data
+- Assess whether there was a weight loss effect in our data
+
+## Our Study
+
+An experimental weight loss drug was first tested at one site with volunteers (DatasetA). 
+
+Your goal is to assess whether there was an effect from the weight loss drug. If you notice any issues in the data, you will need to filter or transform the data. 
+
+Go as far as you can. Remember to use your post-its to show your status and whether you need help.
+
+## Data Dictionary
+
+Before we even look at the data, we need to take a look at the data dictionary. The data dictionary usually contains the following values:
+
+
+
+
+## A little bit about R
+
+![Data Munging Pic]()
+
+
+```{r ex="play_around", type="pre-exercise-code"}
+library(dplyr)
+library(ggplot2)
+datasetA <- read.delim("https://www.dropbox.com/s/dmb2mwm8gasvr22/datasetA.txt?raw=1")
+```
+
+```{r ex="play_around", type="sample-code"}
+head(datasetA)
+
+summary(datasetA)
+```
+
+##Dataset A
+
+There are two things to notice for dataset A. The first can be noticed by looking at the data dictionary. The value of `9999` indicates an error on the scale. If they did not catch it via the data dictionary, then they will notice it when they look at the summaries, histogram and boxplots.
+
+```{r ex="summary", type="pre-exercise-code"}
+library(ggplot2)
+library(dplyr)
+datasetA <- read.delim("https://www.dropbox.com/s/dmb2mwm8gasvr22/datasetA.txt?raw=1")
+```
+
+
+```{r ex="summary", type="sample-code"}
+summary(datasetA)
+```
+
+So the first step is remove rows with these values. After removing those rows with error values, the histogram looks much more informative.
+
+```{r message=FALSE}
+#do filtering to remove those lines with error values
+datasetA <- datasetA %>% filter(startWeights != 9999 & endWeights != 9999)
+
+#do the histogram again
+ggplot(datasetA, aes(x=startWeights)) + geom_histogram() +
+  ggtitle("Filtered data (a more informative histogram)")
+
+#Also there is a difference in weight among genders (most easily seen in boxPlots)
+ggplot(datasetA, aes(x=gender, y=startWeights)) + geom_boxplot() +
+  ggtitle("Boxplot of filtered data (by Gender)")
+```
+
+The second thing to notice is that the data needs to be transformed somehow in order to see the weight loss effect. Here I define a new variable called `weightChange`, which is just `startWeights - endWeights`. Because timeElapsed is variable, I also try to scale `weightChange` by the `timeElapsed` in order to look for a possible linear relationship between the two.
+
+An optional step is to omit NAs, which occur in gender.
+
+```{r}
+datasetA <- datasetA %>% mutate(weightChange = startWeights - endWeights, 
+                              weightChangePerDay = weightChange / timeElapsed)
+datasetA <- na.omit(datasetA)
+
+#show that there is a weightChange effect in those treated 
+#versus those who are not
+ggplot(datasetA, aes(x = treatment, y= weightChange)) + geom_boxplot() +
+  ggtitle("Boxplot of Weight Loss (lbs)")
+```
+

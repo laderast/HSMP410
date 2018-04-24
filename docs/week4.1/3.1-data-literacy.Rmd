@@ -1,0 +1,75 @@
+---
+title: "Data Literacy: Understanding Visualizations"
+subtitle: "Week 3.1"
+author: "Ted Laderas"
+date: `r Sys.Date()`
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+```
+
+# Learning Objectives
+
++ Understand how we can represent different kinds of data
++ Understand how to communicate with visualizations
++ Understand when visualizations are misleading
+
+Graph literacy
+https://concord.org/wp-content/uploads/2016/12/pdf/teaching-graph-literacy-across-curriculum.pdf
+
+
+# Time Series
+
+Time series data is everywhere. 
+
+We are often interested in looking at overall trends, or differences in trends.
+
+Many types of clinical data can be represented as time series:
+
+- Lab Information
+- Patient Visits
+- 
+
+# Playing with time scales
+
+Try modifying the beginning and end points for the data. Can you make it look like there is an overall downward trend? 
+
+--- 
+# Types of useful graphs
+
+- time-series
+- single dimension data
+  - histograms
+  - barplots
+- two way data (relationships)
+  - scatterplots
+  - filled bar plots
+  - proportional plots
+  
+
+---
+
+# Outline
+
++ Base Visualizations
++ Aesthetics
++ Activity
+
+---
+
+# Visualization Lies
+
+https://flowingdata.com/2017/02/09/how-to-spot-visualization-lies/
+http://serialmentor.com/dataviz/
+
+---
+
+https://chronicdata.cdc.gov/Behavioral-Risk-Factors/Behavioral-Risk-Factor-Surveillance-System-BRFSS-P/dttw-5yxu

@@ -1,0 +1,20 @@
+---
+title: "Week 4.1 Reading"
+author: "Ted Laderas"
+date: "4/20/2018"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+The reading assignment to look at this week is: [What is Data?](http://paldhous.github.io/ucb/2016/dataviz/week1.html): http://paldhous.github.io/ucb/2016/dataviz/week1.html
+
+Read and understand the following sections:
+
+1. Types of data: categorical vs. continuous
+1. What shape is your data?
+1. Working with categorical data
+1. Working with continuous data: consider the distribution
+1. Beyond the “average”: mean, median, and mode
