@@ -118,7 +118,11 @@ a
 
 ## Visualizing a single variable as a histogram
 
-Let's look at `startWeight` as a histogram. Notice anything strange?
+Let's look at `startWeight` as a histogram. We can do this by using the `qplot()` command.
+
+We need to supply multiple *arguments* to this command, including what our data is (`data`), what our x variable is (`x`), and what kind of plot we want (`geom`).
+
+Notice anything strange about the histogram?
 
 ```{r ex="histogram", type="pre-exercise-code"}
 library(dplyr)
@@ -147,7 +151,7 @@ These verbs act like little machines that do things to the data. We can tell the
 
 ## Filtering our data using `filter()`
 
-Ok, we've taken a look at our data and determined the variables. We've noticed that missing values (which are errors from the weight scale) are denoted by `9999`. 
+Ok, we've taken a look at our data and determined the variables. We've noticed that missing values (which are errors from the weight scale) are denoted by `9999` in both `startWeight` and `endWeight`.
 
 We can remove these values with a `filter` statement. Remember, our data wrangling verbs are like little machines that we can 'pipe' our data into. Try the example below. How can we adapt it so that we can remove the `9999` values? 
 
@@ -160,11 +164,11 @@ datasetA <- read.delim("https://www.dropbox.com/s/dmb2mwm8gasvr22/datasetA.txt?r
 ```
 
 ```{r ex="filter", type="sample-code"}
-dataAfiltered <- datasetA %>% filter(timeElapsed < 10)
+dataAfiltered <- datasetA %>% filter(timeElapsed < 30)
 summary(dataAfiltered)
 ```
 
-## We've removed our missing values, let's look at the data
+## We've removed our missing values, let's look at the data again
 
 So the first step is remove rows with these values. After removing those rows with error values, the histogram looks much more informative.
 
@@ -184,7 +188,7 @@ qplot(x=startWeights, data=datasetAfiltered, geom="histogram")
 
 ## Transforming our data
 
-The second thing to notice is that the data needs to be transformed somehow in order to see the weight loss effect. Here I define a new variable called `weightChange`, which is just `startWeights - endWeights`. Because timeElapsed is variable, I also try to scale `weightChange` by the `timeElapsed` in order to look for a possible linear relationship between the two.
+The second thing to notice is that the data needs to be transformed somehow in order to see the weight loss effect. Here I define a new variable called `weightChange`, which is just `startWeights - endWeights`. 
 
 ```{r ex="mutate", type="pre-exercise-code"}
 library(ggplot2)
@@ -215,10 +219,33 @@ datasetA <- read.delim("https://www.dropbox.com/s/dmb2mwm8gasvr22/datasetA.txt?r
 datasetAtransformed <- datasetA %>% 
   filter(startWeights < 9999 & endWeights < 9999) %>%
   mutate(weightChange = startWeights - endWeights)
-##add another mutate statement here
+##add another mutate statement here to calculate weightChangePerDay
 
 ##plot the data as a boxplot
+##change the y variable to weightChangePerDay
 qplot(x=treatment, y=weightChange, data=datasetAtransformed, geom="boxplot")
+```
+
+## Bonus Exercise
+
+See if there's a difference between genders (`Gender`) for (`weightLossPerDay`).
+
+```{r ex="mutate4", type="pre-exercise-code"}
+library(ggplot2)
+library(dplyr)
+datasetA <- read.delim("https://www.dropbox.com/s/dmb2mwm8gasvr22/datasetA.txt?raw=1")
+```
+
+```{r ex="mutate4", type="sample-code"}
+datasetAtransformed <- datasetA %>% 
+  filter(startWeights < 9999 & endWeights < 9999) %>%
+  mutate(weightChange = startWeights - endWeights) %>%
+  mutate(weightChangePerDay = weightChange / timeElapsed)
+##add another mutate statement here to calculate weightChangePerDay
+
+##plot the data as a boxplot
+##change the x variable to gender
+qplot(x=treatment, y=weightChangePerDay, data=datasetAtransformed, geom="boxplot")
 ```
 
 ## What did we learn?
