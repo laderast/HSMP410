@@ -11,14 +11,14 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## About this Course Material
 
-This is a webpage describing the course material I have been developing for HMSP410, Health Informatics. They are intended for students with very little math and programming background. Where possible, I've tried to have hands-on activities for each of the subjects.
+This is a webpage describing the course material I have been developing for HMSP410, Health Informatics. This is a course that is co-taught with [Bill Hersh](http://informaticsprofessor.blogspot.com) for the [OHSU/PSU School of Public Health](https://ohsu-psu-sph.org). They are intended for students with very little math and programming background. Where possible, I've tried to have hands-on activities for each of the subjects.
 
 ## Week 1.2 Introduction to Bioinformatics
 
 - [Slides and Activity](http://laderast.github.io/HSMP410/week1.2/)
 - [Rmarkdown](http://github.com/laderast/HSMP410/week1.2/index.Rmd)
 
-This is a brief introduction to genotyping and phenotyping through the lens of Genome Wide Association Studies. In the activity, students are given SNPs to explore using the EBI GWAS browser and we
+This is a brief introduction to genotyping and phenotyping through the lens of Genome Wide Association Studies. In the activity, students are given SNPs to explore using the EBI GWAS browser and we crowdsource our results.
 
 ## Week 2.2 Introduction to Genomics
 
@@ -27,7 +27,7 @@ This is a brief introduction to genotyping and phenotyping through the lens of G
 - [Activity Materials](http://github.com/laderast/HSMP410/docs/week2.2/activity_files)
 - [KRAS discussion slides](http://github.com/laderast/HSMP410/docs/week2.2/2.2-kras-and-cancer.pdf)
 
-In this lecture, we talk about issues with Genotyping in the context of cancer mutations, in particular the idea of *depth* and *coverage*. In the activity, students are given paired tumor/normal sequences samples and they need to compare the two sets of sequences to identify a mutation in the KRAS gene. This activity was adapted from [yourgenome.gov]().
+In this lecture, we talk about issues with Genotyping in the context of cancer mutations, in particular the idea of *depth* and *coverage*. In the activity, students are given paired tumor/normal sequences samples and they need to compare the two sets of sequences to identify a mutation in the KRAS gene. This activity was adapted from [yourgenome.org](https://www.yourgenome.org/activities/kras-cancer-mutation).
 
 ## Week 4.1 Introduction to Visualization/Data Literacy
 
