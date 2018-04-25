@@ -188,10 +188,10 @@ $(document).ready(function () {
 <p>We don’t need to install it today. Instead we can run some programming exercises off DataCamp.</p>
 <p>We’ll do a little programming today, just to get a taste for how we can wrangle and visualize data.</p>
 <p>Note that each of these DataCamp panes is self-contained. What you do in one DataCamp pane does not affect the other panes.</p>
-<div class="figure">
-<img src="" alt="Datacamp Window" />
-<p class="caption">Datacamp Window</p>
 </div>
+<div id="one-note-about-variables" class="section level2">
+<h2>One note about variables</h2>
+<p>Capitalization and case matters in R! So make sure that you are referring to the variables correctly (<code>gender</code> rather than <code>Gender</code>). That’s the one issue that can trip people up at the beginning.</p>
 </div>
 <div id="lets-look-at-the-summary-info" class="section level2">
 <h2>Let’s look at the summary info</h2>
@@ -255,7 +255,7 @@ eyJsYW5ndWFnZSI6InIiLCJwcmVfZXhlcmNpc2VfY29kZSI6ImxpYnJhcnkoZ2dwbG90MilcbmxpYnJh
 <h2>Transforming our data</h2>
 <p>The second thing to notice is that the data needs to be transformed somehow in order to see the weight loss effect. Here I define a new variable called <code>weightChange</code>, which is just <code>startWeights - endWeights</code>.</p>
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJwcmVfZXhlcmNpc2VfY29kZSI6ImxpYnJhcnkoZ2dwbG90MilcbmxpYnJhcnkoZHBseXIpXG5kYXRhc2V0QSA8LSByZWFkLmRlbGltKFwiaHR0cHM6Ly93d3cuZHJvcGJveC5jb20vcy9kbWIybXdtOGdhc3ZyMjIvZGF0YXNldEEudHh0P3Jhdz0xXCIpIiwic2FtcGxlIjoiZGF0YXNldEF0cmFuc2Zvcm1lZCA8LSBkYXRhc2V0QSAlPiUgXG4gIGZpbHRlcihzdGFydFdlaWdodHMgPCA5OTk5ICYgZW5kV2VpZ2h0cyA8IDk5OTkpICU+JVxuICBtdXRhdGUod2VpZ2h0Q2hhbmdlID0gc3RhcnRXZWlnaHRzIC0gZW5kV2VpZ2h0cylcbiMjYWRkIGFub3RoZXIgbXV0YXRlIHN0YXRlbWVudCBoZXJlIHRvIGNhbGN1bGF0ZSB3ZWlnaHRDaGFuZ2VQZXJEYXlcblxuIyNwbG90IHRoZSBkYXRhIGFzIGEgYm94cGxvdFxuIyNjaGFuZ2UgdGhlIHkgdmFyaWFibGUgdG8gd2VpZ2h0Q2hhbmdlUGVyRGF5XG5xcGxvdCh4PXRyZWF0bWVudCwgeT13ZWlnaHRDaGFuZ2UsIGRhdGE9ZGF0YXNldEF0cmFuc2Zvcm1lZCwgZ2VvbT1cImJveHBsb3RcIikifQ==
+eyJsYW5ndWFnZSI6InIiLCJwcmVfZXhlcmNpc2VfY29kZSI6ImxpYnJhcnkoZ2dwbG90MilcbmxpYnJhcnkoZHBseXIpXG5kYXRhc2V0QSA8LSByZWFkLmRlbGltKFwiaHR0cHM6Ly93d3cuZHJvcGJveC5jb20vcy9kbWIybXdtOGdhc3ZyMjIvZGF0YXNldEEudHh0P3Jhdz0xXCIpIiwic2FtcGxlIjoiZGF0YXNldEF0cmFuc2Zvcm1lZCA8LSBcbiAgZGF0YXNldEEgJT4lIFxuICBmaWx0ZXIoc3RhcnRXZWlnaHRzIDwgOTk5OSAmIGVuZFdlaWdodHMgPCA5OTk5KSAlPiVcbiAgbXV0YXRlKHdlaWdodENoYW5nZSA9IHN0YXJ0V2VpZ2h0cyAtIGVuZFdlaWdodHMpXG4jI2FkZCBhbm90aGVyIG11dGF0ZSBzdGF0ZW1lbnQgaGVyZSB0byBjYWxjdWxhdGUgd2VpZ2h0Q2hhbmdlUGVyRGF5XG5cbiMjcGxvdCB0aGUgZGF0YSBhcyBhIGJveHBsb3RcbiMjY2hhbmdlIHRoZSB5IHZhcmlhYmxlIHRvIHdlaWdodENoYW5nZVBlckRheVxucXBsb3QoeD10cmVhdG1lbnQsIHk9d2VpZ2h0Q2hhbmdlLCBkYXRhPWRhdGFzZXRBdHJhbnNmb3JtZWQsIGdlb209XCJib3hwbG90XCIpIn0=
 </div>
 </div>
 <div id="so-is-there-a-difference-between-treatment-and-control" class="section level2">
@@ -264,13 +264,20 @@ eyJsYW5ndWFnZSI6InIiLCJwcmVfZXhlcmNpc2VfY29kZSI6ImxpYnJhcnkoZ2dwbG90MilcbmxpYnJh
 </div>
 <div id="bonus-exercise" class="section level2">
 <h2>Bonus Exercise</h2>
-<p>See if there’s a difference between genders (<code>Gender</code>) for (<code>weightLossPerDay</code>).</p>
+<p>See if there’s a difference between genders (<code>Gender</code>) for (<code>weightLossPerDay</code>). If there is, is the difference large or small?</p>
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJwcmVfZXhlcmNpc2VfY29kZSI6ImxpYnJhcnkoZ2dwbG90MilcbmxpYnJhcnkoZHBseXIpXG5kYXRhc2V0QSA8LSByZWFkLmRlbGltKFwiaHR0cHM6Ly93d3cuZHJvcGJveC5jb20vcy9kbWIybXdtOGdhc3ZyMjIvZGF0YXNldEEudHh0P3Jhdz0xXCIpIiwic2FtcGxlIjoiZGF0YXNldEF0cmFuc2Zvcm1lZCA8LSBkYXRhc2V0QSAlPiUgXG4gIGZpbHRlcihzdGFydFdlaWdodHMgPCA5OTk5ICYgZW5kV2VpZ2h0cyA8IDk5OTkpICU+JVxuICBtdXRhdGUod2VpZ2h0Q2hhbmdlID0gc3RhcnRXZWlnaHRzIC0gZW5kV2VpZ2h0cykgJT4lXG4gIG11dGF0ZSh3ZWlnaHRDaGFuZ2VQZXJEYXkgPSB3ZWlnaHRDaGFuZ2UgLyB0aW1lRWxhcHNlZClcbiMjYWRkIGFub3RoZXIgbXV0YXRlIHN0YXRlbWVudCBoZXJlIHRvIGNhbGN1bGF0ZSB3ZWlnaHRDaGFuZ2VQZXJEYXlcblxuIyNwbG90IHRoZSBkYXRhIGFzIGEgYm94cGxvdFxuIyNjaGFuZ2UgdGhlIHggdmFyaWFibGUgdG8gR2VuZGVyXG5xcGxvdCh4PXRyZWF0bWVudCwgeT13ZWlnaHRDaGFuZ2VQZXJEYXksIGRhdGE9ZGF0YXNldEF0cmFuc2Zvcm1lZCwgZ2VvbT1cImJveHBsb3RcIikifQ==
+eyJsYW5ndWFnZSI6InIiLCJwcmVfZXhlcmNpc2VfY29kZSI6ImxpYnJhcnkoZ2dwbG90MilcbmxpYnJhcnkoZHBseXIpXG5kYXRhc2V0QSA8LSByZWFkLmRlbGltKFwiaHR0cHM6Ly93d3cuZHJvcGJveC5jb20vcy9kbWIybXdtOGdhc3ZyMjIvZGF0YXNldEEudHh0P3Jhdz0xXCIpIiwic2FtcGxlIjoiZGF0YXNldEF0cmFuc2Zvcm1lZCA8LSBcbiAgZGF0YXNldEEgJT4lIFxuICBmaWx0ZXIoc3RhcnRXZWlnaHRzIDwgOTk5OSAmIGVuZFdlaWdodHMgPCA5OTk5KSAlPiVcbiAgbXV0YXRlKHdlaWdodENoYW5nZSA9IHN0YXJ0V2VpZ2h0cyAtIGVuZFdlaWdodHMpICU+JVxuICBtdXRhdGUod2VpZ2h0Q2hhbmdlUGVyRGF5ID0gd2VpZ2h0Q2hhbmdlIC8gdGltZUVsYXBzZWQpXG4jI2FkZCBhbm90aGVyIG11dGF0ZSBzdGF0ZW1lbnQgaGVyZSB0byBjYWxjdWxhdGUgd2VpZ2h0Q2hhbmdlUGVyRGF5XG5cbiMjcGxvdCB0aGUgZGF0YSBhcyBhIGJveHBsb3RcbiMjY2hhbmdlIHRoZSB4IHZhcmlhYmxlIHRvIGdlbmRlclxucXBsb3QoeD10cmVhdG1lbnQsIHk9d2VpZ2h0Q2hhbmdlUGVyRGF5LCBkYXRhPWRhdGFzZXRBdHJhbnNmb3JtZWQsIGdlb209XCJib3hwbG90XCIpIn0=
 </div>
 </div>
 <div id="what-did-we-learn" class="section level2">
 <h2>What did we learn?</h2>
+<ul>
+<li>Read the data dictionary and find any potential pitfalls</li>
+<li>Have a plan before you start!</li>
+<li>Filtering using <code>filter()</code></li>
+<li>Calculating new variables using <code>mutate()</code></li>
+<li>Visualizing data before and after each process with <code>qplot()</code></li>
+</ul>
 </div>
 
 

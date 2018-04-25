@@ -76,7 +76,9 @@ We'll do a little programming today, just to get a taste for how we can wrangle 
 
 Note that each of these DataCamp panes is self-contained. What you do in one DataCamp pane does not affect the other panes.
 
-![Datacamp Window]()
+## One note about variables
+
+Capitalization and case matters in R! So make sure that you are referring to the variables correctly (`gender` rather than `Gender`). That's the one issue that can trip people up at the beginning.
 
 ## Let's look at the summary info
 
@@ -197,7 +199,8 @@ datasetA <- read.delim("https://www.dropbox.com/s/dmb2mwm8gasvr22/datasetA.txt?r
 ```
 
 ```{r ex="mutate", type="sample-code"}
-datasetAtransformed <- datasetA %>% 
+datasetAtransformed <- 
+  datasetA %>% 
   filter(startWeights < 9999 & endWeights < 9999) %>%
   mutate(weightChange = startWeights - endWeights)
 
@@ -216,7 +219,8 @@ datasetA <- read.delim("https://www.dropbox.com/s/dmb2mwm8gasvr22/datasetA.txt?r
 ```
 
 ```{r ex="mutate", type="sample-code"}
-datasetAtransformed <- datasetA %>% 
+datasetAtransformed <- 
+  datasetA %>% 
   filter(startWeights < 9999 & endWeights < 9999) %>%
   mutate(weightChange = startWeights - endWeights)
 ##add another mutate statement here to calculate weightChangePerDay
@@ -228,7 +232,7 @@ qplot(x=treatment, y=weightChange, data=datasetAtransformed, geom="boxplot")
 
 ## Bonus Exercise
 
-See if there's a difference between genders (`Gender`) for (`weightLossPerDay`).
+See if there's a difference between genders (`Gender`) for (`weightLossPerDay`). If there is, is the difference large or small?
 
 ```{r ex="mutate4", type="pre-exercise-code"}
 library(ggplot2)
@@ -237,7 +241,8 @@ datasetA <- read.delim("https://www.dropbox.com/s/dmb2mwm8gasvr22/datasetA.txt?r
 ```
 
 ```{r ex="mutate4", type="sample-code"}
-datasetAtransformed <- datasetA %>% 
+datasetAtransformed <- 
+  datasetA %>% 
   filter(startWeights < 9999 & endWeights < 9999) %>%
   mutate(weightChange = startWeights - endWeights) %>%
   mutate(weightChangePerDay = weightChange / timeElapsed)
@@ -250,3 +255,8 @@ qplot(x=treatment, y=weightChangePerDay, data=datasetAtransformed, geom="boxplot
 
 ## What did we learn?
 
+- Read the data dictionary and find any potential pitfalls
+- Have a plan before you start!
+- Filtering using `filter()`
+- Calculating new variables using `mutate()`
+- Visualizing data before and after each process with `qplot()`
