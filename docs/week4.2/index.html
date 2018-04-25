@@ -253,11 +253,19 @@ eyJsYW5ndWFnZSI6InIiLCJwcmVfZXhlcmNpc2VfY29kZSI6ImxpYnJhcnkoZ2dwbG90MilcbmxpYnJh
 <h2>Transforming our data</h2>
 <p>The second thing to notice is that the data needs to be transformed somehow in order to see the weight loss effect. Here I define a new variable called <code>weightChange</code>, which is just <code>startWeights - endWeights</code>. Because timeElapsed is variable, I also try to scale <code>weightChange</code> by the <code>timeElapsed</code> in order to look for a possible linear relationship between the two.</p>
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJwcmVfZXhlcmNpc2VfY29kZSI6ImxpYnJhcnkoZ2dwbG90MilcbmxpYnJhcnkoZHBseXIpXG5kYXRhc2V0QSA8LSByZWFkLmRlbGltKFwiaHR0cHM6Ly93d3cuZHJvcGJveC5jb20vcy9kbWIybXdtOGdhc3ZyMjIvZGF0YXNldEEudHh0P3Jhdz0xXCIpIiwic2FtcGxlIjoiZGF0YXNldEF0cmFuc2Zvcm1lZCA8LSBkYXRhc2V0QSAlPiUgXG4gIGZpbHRlcihzdGFydFdlaWdodHMgPCA5OTk5ICYgZW5kV2VpZ2h0cyA8IDk5OTkpICU+JVxuICBtdXRhdGUod2VpZ2h0Q2hhbmdlID0gc3RhcnRXZWlnaHRzIC0gZW5kV2VpZ2h0cylcblxucXBsb3QoeD10cmVhdG1lbnQsIHk9d2VpZ2h0Q2hhbmdlLCBkYXRhPWRhdGFzZXRBdHJhbnNmb3JtZWQpIn0=
+eyJsYW5ndWFnZSI6InIiLCJwcmVfZXhlcmNpc2VfY29kZSI6ImxpYnJhcnkoZ2dwbG90MilcbmxpYnJhcnkoZHBseXIpXG5kYXRhc2V0QSA8LSByZWFkLmRlbGltKFwiaHR0cHM6Ly93d3cuZHJvcGJveC5jb20vcy9kbWIybXdtOGdhc3ZyMjIvZGF0YXNldEEudHh0P3Jhdz0xXCIpIiwic2FtcGxlIjoiZGF0YXNldEF0cmFuc2Zvcm1lZCA8LSBkYXRhc2V0QSAlPiUgXG4gIGZpbHRlcihzdGFydFdlaWdodHMgPCA5OTk5ICYgZW5kV2VpZ2h0cyA8IDk5OTkpICU+JVxuICBtdXRhdGUod2VpZ2h0Q2hhbmdlID0gc3RhcnRXZWlnaHRzIC0gZW5kV2VpZ2h0cylcbiMjYWRkIGFub3RoZXIgbXV0YXRlIHN0YXRlbWVudCBoZXJlXG5cbiMjcGxvdCB0aGUgZGF0YSBhcyBhIGJveHBsb3RcbnFwbG90KHg9dHJlYXRtZW50LCB5PXdlaWdodENoYW5nZSwgZGF0YT1kYXRhc2V0QXRyYW5zZm9ybWVkLCBnZW9tPVwiYm94cGxvdFwiKSJ9
 </div>
 </div>
 <div id="so-is-there-a-difference-between-treatment-and-control" class="section level2">
 <h2>So is there a difference between treatment and control?</h2>
+<p>We do notice that there’s a wide range of <code>timeElapsed</code> values. We probably want to calculate <code>weightChangePerDay</code> instead to compare across our values. How can we do that with a <code>mutate()</code>?</p>
+</div>
+<div id="bonus-exercise" class="section level2">
+<h2>Bonus Exercise</h2>
+<p>See if there’s a difference be</p>
+</div>
+<div id="what-did-we-learn" class="section level2">
+<h2>What did we learn?</h2>
 </div>
 
 

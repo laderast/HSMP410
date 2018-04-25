@@ -203,4 +203,23 @@ qplot(x=treatment, y=weightChange, data=datasetAtransformed, geom="boxplot")
 
 ## So is there a difference between treatment and control?
 
-We do notice that there's a 
+We do notice that there's a wide range of `timeElapsed` values. We probably want to calculate `weightChangePerDay` instead to compare across our values. How can we do that with a `mutate()`?
+
+```{r ex="mutate", type="pre-exercise-code"}
+library(ggplot2)
+library(dplyr)
+datasetA <- read.delim("https://www.dropbox.com/s/dmb2mwm8gasvr22/datasetA.txt?raw=1")
+```
+
+```{r ex="mutate", type="sample-code"}
+datasetAtransformed <- datasetA %>% 
+  filter(startWeights < 9999 & endWeights < 9999) %>%
+  mutate(weightChange = startWeights - endWeights)
+##add another mutate statement here
+
+##plot the data as a boxplot
+qplot(x=treatment, y=weightChange, data=datasetAtransformed, geom="boxplot")
+```
+
+## What did we learn?
+
