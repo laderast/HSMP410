@@ -21,25 +21,68 @@ tutorial::go_interactive()
 - Calculate new variables based on other variables in our data
 - Assess whether there was a weight loss effect in our data
 
+## A little bit about the data science process
+
+![http://r4ds.had.co.nz/explore-intro.html](image/data-science-explore.png)
+
+## Why Visualize?
+
+There are twelve datasets, all of which have the same mean for X and Y!
+
+You need to look at the data to ensure that you understand it.
+
+![http://blog.revolutionanalytics.com/2017/05/the-datasaurus-dozen.html](image/Datasaurus-Dozen.gif)
+
 ## Our Study
 
-An experimental weight loss drug was first tested at one site with volunteers (DatasetA). 
+In the data, an experimental weight loss drug was given in a double-blinded study to a set of patients. 
 
-Your goal is to assess whether there was an effect from the weight loss drug. If you notice any issues in the data, you will need to filter or transform the data. 
+There are two groups of patients. One group received treatment and one group received a placebo. The patients were weighed before treatment, and then, at a second clinic visit, weighed again after treatment. 
 
-Go as far as you can. Remember to use your post-its to show your status and whether you need help.
+Dataset A was conducted at a university clinic in Southwest Portland. 
+
+Your goal is two-fold. You will identify possible issues in the data. Then you will transform the data to assess whether there was weight loss due to the treatment.
 
 ## Data Dictionary
 
-Before we even look at the data, we need to take a look at the data dictionary. The data dictionary usually contains the following values:
+Before we even look at the data, we need to take a look at the data dictionary. The data dictionary usually contains the following fields:
 
+- Data field
+- Name
+- Defintion
+- DataType
+- Units
+- Format
+- Values
+- Why Item Included
 
+## Take a look at the Data Dictionary
 
+Take a look at the `Values` for `startWeights`. Is there anything we need to account for?
 
-## A little bit about R
+Since we want to measure weight loss, what should we do to transform the data?
 
-![Data Munging Pic]()
+Let's start to put together a plan. What do we want to show and what variables will we need to do it?
 
+![](image/datadictionary.png)
+
+## Let's talk a little bit about R and DataCamp
+
+R is a programming language that's really good at visualization, data wrangling, and statistics.
+
+We don't need to install it today. Instead we can run some programming exercises off DataCamp.
+
+We'll do a little programming today, just to get a taste for how we can wrangle and visualize data.
+
+Note that each of these DataCamp panes is self-contained. What you do in one DataCamp pane does not affect the other panes.
+
+![Datacamp Window]()
+
+## Let's look at the summary info
+
+We are given the data as what's called a `data.frame`. The `data.frame` is basically an excel table that we can manipulate with commands. If you want to look at the actual contents of the data, you can browse it as a Google Sheet here: [Weight Loss Dataset A](https://docs.google.com/spreadsheets/d/1zUlhNjxhSRrmJrBe4dMlXnEK-o3C7QnUpZ5SvowOqwA/edit?usp=sharing)
+
+The data is loaded up as `datasetA`. Try running both `head(datasetA)` and `summary(datasetA)`. Did you learn anything about the data?
 
 ```{r ex="play_around", type="pre-exercise-code"}
 library(dplyr)
@@ -48,53 +91,116 @@ datasetA <- read.delim("https://www.dropbox.com/s/dmb2mwm8gasvr22/datasetA.txt?r
 ```
 
 ```{r ex="play_around", type="sample-code"}
+#show the first few rows of the data
 head(datasetA)
 
+#show the summary table for the data
 summary(datasetA)
 ```
 
-##Dataset A
+## R primer: Assignment
 
-There are two things to notice for dataset A. The first can be noticed by looking at the data dictionary. The value of `9999` indicates an error on the scale. If they did not catch it via the data dictionary, then they will notice it when they look at the summaries, histogram and boxplots.
+We can assign the value of a variable using `<-`. We can show the value of the variable just by typing the name of that variable.
 
-```{r ex="summary", type="pre-exercise-code"}
+We are going to use `<-` to assign the output of our manipulation to a new `data.frame`. More on this later
+
+```{r ex="assignment", type="sample-code"}
+## assign the value of a to be 1+2
+a <- 1 + 3
+# show a
+a
+
+# make b equal to a + 10
+
+# show b
+
+```
+
+## Visualizing a single variable as a histogram
+
+Let's look at `startWeight` as a histogram. Notice anything strange?
+
+```{r ex="histogram", type="pre-exercise-code"}
+library(dplyr)
+library(ggplot2)
+datasetA <- read.delim("https://www.dropbox.com/s/dmb2mwm8gasvr22/datasetA.txt?raw=1")
+```
+
+```{r ex="histogram", type="sample-code"}
+qplot(x=startWeights, data=datasetA, geom="histogram")
+```
+
+## Data Wrangling Verbs
+
+We know our data isn't perfect. We need to manipulate, or *wrangle* our data so we can actually see if there is a difference in weight loss between the experimental treatment and the control.
+
+Oftentimes, we are given the data, but it's very messy. We want to get the data to the point where it is *tidy*. The visualization examples in class from last time were all examples of tidy data. 
+
+We're going to use two verbs in particular to wrangle our dataset. 
+
+- `filter()` - remove rows that do not meet a particular criteria
+    - We'll use `filter()` to remove missing values
+- `mutate()` - calculate new variables based on variables in our data
+    - We'll use `mutate()` to calculate weight loss change
+
+These verbs act like little machines that do things to the data. We can tell the data to flow through the machine with a `%>%`, which is called a `pipe`. The `%>%` lets us connect the data to our data wrangling verbs.
+
+## Filtering our data using `filter()`
+
+Ok, we've taken a look at our data and determined the variables. We've noticed that missing values (which are errors from the weight scale) are denoted by `9999`. 
+
+We can remove these values with a `filter` statement. Remember, our data wrangling verbs are like little machines that we can 'pipe' our data into. Try the example below. How can we adapt it so that we can remove the `9999` values? 
+
+Remember that `>` is *greater than* and that `<` means *less than*.
+
+```{r ex="filter", type="pre-exercise-code"}
 library(ggplot2)
 library(dplyr)
 datasetA <- read.delim("https://www.dropbox.com/s/dmb2mwm8gasvr22/datasetA.txt?raw=1")
 ```
 
-
-```{r ex="summary", type="sample-code"}
-summary(datasetA)
+```{r ex="filter", type="sample-code"}
+dataAfiltered <- datasetA %>% filter(timeElapsed < 10)
+summary(dataAfiltered)
 ```
+
+## We've removed our missing values, let's look at the data
 
 So the first step is remove rows with these values. After removing those rows with error values, the histogram looks much more informative.
 
-```{r message=FALSE}
+```{r ex="vis-after", type="pre-exercise-code"}
+library(ggplot2)
+library(dplyr)
+datasetA <- read.delim("https://www.dropbox.com/s/dmb2mwm8gasvr22/datasetA.txt?raw=1")
+```
+
+```{r ex="vis-after", type="sample-code"}
 #do filtering to remove those lines with error values
-datasetA <- datasetA %>% filter(startWeights != 9999 & endWeights != 9999)
+datasetAfiltered <- datasetA %>% filter(startWeights < 9999 & endWeights < 9999)
 
 #do the histogram again
-ggplot(datasetA, aes(x=startWeights)) + geom_histogram() +
-  ggtitle("Filtered data (a more informative histogram)")
-
-#Also there is a difference in weight among genders (most easily seen in boxPlots)
-ggplot(datasetA, aes(x=gender, y=startWeights)) + geom_boxplot() +
-  ggtitle("Boxplot of filtered data (by Gender)")
+qplot(x=startWeights, data=datasetAfiltered, geom="histogram")
 ```
+
+## Transforming our data
 
 The second thing to notice is that the data needs to be transformed somehow in order to see the weight loss effect. Here I define a new variable called `weightChange`, which is just `startWeights - endWeights`. Because timeElapsed is variable, I also try to scale `weightChange` by the `timeElapsed` in order to look for a possible linear relationship between the two.
 
-An optional step is to omit NAs, which occur in gender.
-
-```{r}
-datasetA <- datasetA %>% mutate(weightChange = startWeights - endWeights, 
-                              weightChangePerDay = weightChange / timeElapsed)
-datasetA <- na.omit(datasetA)
-
-#show that there is a weightChange effect in those treated 
-#versus those who are not
-ggplot(datasetA, aes(x = treatment, y= weightChange)) + geom_boxplot() +
-  ggtitle("Boxplot of Weight Loss (lbs)")
+```{r ex="mutate", type="pre-exercise-code"}
+library(ggplot2)
+library(dplyr)
+datasetA <- read.delim("https://www.dropbox.com/s/dmb2mwm8gasvr22/datasetA.txt?raw=1")
 ```
 
+```{r ex="mutate", type="sample-code"}
+datasetAtransformed <- datasetA %>% 
+  filter(startWeights < 9999 & endWeights < 9999) %>%
+  mutate(weightChange = startWeights - endWeights)
+
+##plot the data as a boxplot
+qplot(x=treatment, y=weightChange, data=datasetAtransformed, geom="boxplot")
+```
+
+## So is there a difference between treatment and control?
+
+We do notice that there's a 

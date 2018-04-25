@@ -11,7 +11,7 @@
 
 <meta name="author" content="Ted Laderas" />
 
-<meta name="date" content="2018-04-24" />
+<meta name="date" content="2018-04-25" />
 
 <title>A Guided Tour Through Data Science</title>
 
@@ -121,7 +121,7 @@ $(document).ready(function () {
 
 <h1 class="title toc-ignore">A Guided Tour Through Data Science</h1>
 <h4 class="author"><em>Ted Laderas</em></h4>
-<h4 class="date"><em>2018-04-24</em></h4>
+<h4 class="date"><em>2018-04-25</em></h4>
 
 </div>
 
@@ -135,41 +135,129 @@ $(document).ready(function () {
 <li>Assess whether there was a weight loss effect in our data</li>
 </ul>
 </div>
+<div id="a-little-bit-about-the-data-science-process" class="section level2">
+<h2>A little bit about the data science process</h2>
+<div class="figure">
+<img src="image/data-science-explore.png" alt="http://r4ds.had.co.nz/explore-intro.html" />
+<p class="caption"><a href="http://r4ds.had.co.nz/explore-intro.html" class="uri">http://r4ds.had.co.nz/explore-intro.html</a></p>
+</div>
+</div>
+<div id="why-visualize" class="section level2">
+<h2>Why Visualize?</h2>
+<p>There are twelve datasets, all of which have the same mean for X and Y!</p>
+<p>You need to look at the data to ensure that you understand it.</p>
+<div class="figure">
+<img src="image/DataSaurus-Dozen.gif" alt="http://blog.revolutionanalytics.com/2017/05/the-datasaurus-dozen.html" />
+<p class="caption"><a href="http://blog.revolutionanalytics.com/2017/05/the-datasaurus-dozen.html" class="uri">http://blog.revolutionanalytics.com/2017/05/the-datasaurus-dozen.html</a></p>
+</div>
+</div>
 <div id="our-study" class="section level2">
 <h2>Our Study</h2>
-<p>An experimental weight loss drug was first tested at one site with volunteers (DatasetA).</p>
-<p>Your goal is to assess whether there was an effect from the weight loss drug. If you notice any issues in the data, you will need to filter or transform the data.</p>
-<p>Go as far as you can. Remember to use your post-its to show your status and whether you need help.</p>
+<p>In the data, an experimental weight loss drug was given in a double-blinded study to a set of patients.</p>
+<p>There are two groups of patients. One group received treatment and one group received a placebo. The patients were weighed before treatment, and then, at a second clinic visit, weighed again after treatment.</p>
+<p>Dataset A was conducted at a university clinic in Southwest Portland.</p>
+<p>Your goal is two-fold. You will identify possible issues in the data. Then you will transform the data to assess whether there was weight loss due to the treatment.</p>
 </div>
 <div id="data-dictionary" class="section level2">
 <h2>Data Dictionary</h2>
-<p>Before we even look at the data, we need to take a look at the data dictionary. The data dictionary usually contains the following values:</p>
+<p>Before we even look at the data, we need to take a look at the data dictionary. The data dictionary usually contains the following fields:</p>
+<ul>
+<li>Data field</li>
+<li>Name</li>
+<li>Defintion</li>
+<li>DataType</li>
+<li>Units</li>
+<li>Format</li>
+<li>Values</li>
+<li>Why Item Included</li>
+</ul>
 </div>
-<div id="a-little-bit-about-r" class="section level2">
-<h2>A little bit about R</h2>
+<div id="take-a-look-at-the-data-dictionary" class="section level2">
+<h2>Take a look at the Data Dictionary</h2>
+<p>Take a look at the <code>Values</code> for <code>startWeights</code>. Is there anything we need to account for?</p>
+<p>Since we want to measure weight loss, what should we do to transform the data?</p>
+<p>Let’s start to put together a plan. What do we want to show and what variables will we need to do it?</p>
 <div class="figure">
-<img src="" alt="Data Munging Pic" />
-<p class="caption">Data Munging Pic</p>
+<img src="image/datadictionary.png" />
+
 </div>
+</div>
+<div id="lets-talk-a-little-bit-about-r-and-datacamp" class="section level2">
+<h2>Let’s talk a little bit about R and DataCamp</h2>
+<p>R is a programming language that’s really good at visualization, data wrangling, and statistics.</p>
+<p>We don’t need to install it today. Instead we can run some programming exercises off DataCamp.</p>
+<p>We’ll do a little programming today, just to get a taste for how we can wrangle and visualize data.</p>
+<p>Note that each of these DataCamp panes is self-contained. What you do in one DataCamp pane does not affect the other panes.</p>
+<div class="figure">
+<img src="" alt="Datacamp Window" />
+<p class="caption">Datacamp Window</p>
+</div>
+</div>
+<div id="lets-look-at-the-summary-info" class="section level2">
+<h2>Let’s look at the summary info</h2>
+<p>We are given the data as what’s called a <code>data.frame</code>. The <code>data.frame</code> is basically an excel table that we can manipulate with commands. If you want to look at the actual contents of the data, you can browse it as a Google Sheet here: <a href="https://docs.google.com/spreadsheets/d/1zUlhNjxhSRrmJrBe4dMlXnEK-o3C7QnUpZ5SvowOqwA/edit?usp=sharing">Weight Loss Dataset A</a></p>
+<p>The data is loaded up as <code>datasetA</code>. Try running both <code>head(datasetA)</code> and <code>summary(datasetA)</code>. Did you learn anything about the data?</p>
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJwcmVfZXhlcmNpc2VfY29kZSI6ImxpYnJhcnkoZHBseXIpXG5saWJyYXJ5KGdncGxvdDIpXG5kYXRhc2V0QSA8LSByZWFkLmRlbGltKFwiaHR0cHM6Ly93d3cuZHJvcGJveC5jb20vcy9kbWIybXdtOGdhc3ZyMjIvZGF0YXNldEEudHh0P3Jhdz0xXCIpIiwic2FtcGxlIjoiaGVhZChkYXRhc2V0QSlcblxuc3VtbWFyeShkYXRhc2V0QSkifQ==
+eyJsYW5ndWFnZSI6InIiLCJwcmVfZXhlcmNpc2VfY29kZSI6ImxpYnJhcnkoZHBseXIpXG5saWJyYXJ5KGdncGxvdDIpXG5kYXRhc2V0QSA8LSByZWFkLmRlbGltKFwiaHR0cHM6Ly93d3cuZHJvcGJveC5jb20vcy9kbWIybXdtOGdhc3ZyMjIvZGF0YXNldEEudHh0P3Jhdz0xXCIpIiwic2FtcGxlIjoiI3Nob3cgdGhlIGZpcnN0IGZldyByb3dzIG9mIHRoZSBkYXRhXG5oZWFkKGRhdGFzZXRBKVxuXG4jc2hvdyB0aGUgc3VtbWFyeSB0YWJsZSBmb3IgdGhlIGRhdGFcbnN1bW1hcnkoZGF0YXNldEEpIn0=
 </div>
 </div>
-<div id="dataset-a" class="section level2">
-<h2>Dataset A</h2>
-<p>There are two things to notice for dataset A. The first can be noticed by looking at the data dictionary. The value of <code>9999</code> indicates an error on the scale. If they did not catch it via the data dictionary, then they will notice it when they look at the summaries, histogram and boxplots.</p>
+<div id="r-primer-assignment" class="section level2">
+<h2>R primer: Assignment</h2>
+<p>We can assign the value of a variable using <code>&lt;-</code>. We can show the value of the variable just by typing the name of that variable.</p>
+<p>We are going to use <code>&lt;-</code> to assign the output of our manipulation to a new <code>data.frame</code>. More on this later</p>
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJwcmVfZXhlcmNpc2VfY29kZSI6ImxpYnJhcnkoZ2dwbG90MilcbmxpYnJhcnkoZHBseXIpXG5kYXRhc2V0QSA8LSByZWFkLmRlbGltKFwiaHR0cHM6Ly93d3cuZHJvcGJveC5jb20vcy9kbWIybXdtOGdhc3ZyMjIvZGF0YXNldEEudHh0P3Jhdz0xXCIpXG5cbiNzaG93IGhpc3RvZ3JhbSBvZiBzdGFydFdlaWdodHMgLSBpcyBub3QgdmVyeSBpbmZvcm1hdGl2ZSBiZWNhdXNlIG9mIGVycm9yIHZhbHVlIVxuZ2dwbG90KGRhdGFzZXRBLCBhZXMoeD1zdGFydFdlaWdodHMpKSArIGdlb21faGlzdG9ncmFtKCkgK1xuICBnZ3RpdGxlKFwiQSBub3QgdmVyeSBpbmZvcm1hdGl2ZSBoaXN0b2dyYW1cIikiLCJzYW1wbGUiOiJzdW1tYXJ5KGRhdGFzZXRBKSJ9
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIyBhc3NpZ24gdGhlIHZhbHVlIG9mIGEgdG8gYmUgMSsyXG5hIDwtIDEgKyAzXG4jIHNob3cgYVxuYVxuXG4jIG1ha2UgYiBlcXVhbCB0byBhICsgMTBcblxuIyBzaG93IGIifQ==
 </div>
+</div>
+<div id="visualizing-a-single-variable-as-a-histogram" class="section level2">
+<h2>Visualizing a single variable as a histogram</h2>
+<p>Let’s look at <code>startWeight</code> as a histogram. Notice anything strange?</p>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJwcmVfZXhlcmNpc2VfY29kZSI6ImxpYnJhcnkoZHBseXIpXG5saWJyYXJ5KGdncGxvdDIpXG5kYXRhc2V0QSA8LSByZWFkLmRlbGltKFwiaHR0cHM6Ly93d3cuZHJvcGJveC5jb20vcy9kbWIybXdtOGdhc3ZyMjIvZGF0YXNldEEudHh0P3Jhdz0xXCIpIiwic2FtcGxlIjoicXBsb3QoeD1zdGFydFdlaWdodHMsIGRhdGE9ZGF0YXNldEEsIGdlb209XCJoaXN0b2dyYW1cIikifQ==
+</div>
+</div>
+<div id="data-wrangling-verbs" class="section level2">
+<h2>Data Wrangling Verbs</h2>
+<p>We know our data isn’t perfect. We need to manipulate, or <em>wrangle</em> our data so we can actually see if there is a difference in weight loss between the experimental treatment and the control.</p>
+<p>Oftentimes, we are given the data, but it’s very messy. We want to get the data to the point where it is <em>tidy</em>. The visualization examples in class from last time were all examples of tidy data.</p>
+<p>We’re going to use two verbs in particular to wrangle our dataset.</p>
+<ul>
+<li><code>filter()</code> - remove rows that do not meet a particular criteria
+<ul>
+<li>We’ll use <code>filter()</code> to remove missing values</li>
+</ul></li>
+<li><code>mutate()</code> - calculate new variables based on variables in our data
+<ul>
+<li>We’ll use <code>mutate()</code> to calculate weight loss change</li>
+</ul></li>
+</ul>
+<p>These verbs act like little machines that do things to the data. We can tell the data to flow through the machine with a <code>%&gt;%</code>, which is called a <code>pipe</code>. The <code>%&gt;%</code> lets us connect the data to our data wrangling verbs.</p>
+</div>
+<div id="filtering-our-data-using-filter" class="section level2">
+<h2>Filtering our data using <code>filter()</code></h2>
+<p>Ok, we’ve taken a look at our data and determined the variables. We’ve noticed that missing values (which are errors from the weight scale) are denoted by <code>9999</code>.</p>
+<p>We can remove these values with a <code>filter</code> statement. Remember, our data wrangling verbs are like little machines that we can ‘pipe’ our data into. Try the example below. How can we adapt it so that we can remove the <code>9999</code> values?</p>
+<p>Remember that <code>&gt;</code> is <em>greater than</em> and that <code>&lt;</code> means <em>less than</em>.</p>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJwcmVfZXhlcmNpc2VfY29kZSI6ImxpYnJhcnkoZ2dwbG90MilcbmxpYnJhcnkoZHBseXIpXG5kYXRhc2V0QSA8LSByZWFkLmRlbGltKFwiaHR0cHM6Ly93d3cuZHJvcGJveC5jb20vcy9kbWIybXdtOGdhc3ZyMjIvZGF0YXNldEEudHh0P3Jhdz0xXCIpIiwic2FtcGxlIjoiZGF0YUFmaWx0ZXJlZCA8LSBkYXRhc2V0QSAlPiUgZmlsdGVyKHRpbWVFbGFwc2VkIDwgMTApXG5zdW1tYXJ5KGRhdGFBZmlsdGVyZWQpIn0=
+</div>
+</div>
+<div id="weve-removed-our-missing-values-lets-look-at-the-data" class="section level2">
+<h2>We’ve removed our missing values, let’s look at the data</h2>
 <p>So the first step is remove rows with these values. After removing those rows with error values, the histogram looks much more informative.</p>
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjZG8gZmlsdGVyaW5nIHRvIHJlbW92ZSB0aG9zZSBsaW5lcyB3aXRoIGVycm9yIHZhbHVlc1xuZGF0YXNldEEgPC0gZGF0YXNldEEgJT4lIGZpbHRlcihzdGFydFdlaWdodHMgIT0gOTk5OSAmIGVuZFdlaWdodHMgIT0gOTk5OSlcblxuI2RvIHRoZSBoaXN0b2dyYW0gYWdhaW5cbmdncGxvdChkYXRhc2V0QSwgYWVzKHg9c3RhcnRXZWlnaHRzKSkgKyBnZW9tX2hpc3RvZ3JhbSgpICtcbiAgZ2d0aXRsZShcIkZpbHRlcmVkIGRhdGEgKGEgbW9yZSBpbmZvcm1hdGl2ZSBoaXN0b2dyYW0pXCIpXG5cbiNBbHNvIHRoZXJlIGlzIGEgZGlmZmVyZW5jZSBpbiB3ZWlnaHQgYW1vbmcgZ2VuZGVycyAobW9zdCBlYXNpbHkgc2VlbiBpbiBib3hQbG90cylcbmdncGxvdChkYXRhc2V0QSwgYWVzKHg9Z2VuZGVyLCB5PXN0YXJ0V2VpZ2h0cykpICsgZ2VvbV9ib3hwbG90KCkgK1xuICBnZ3RpdGxlKFwiQm94cGxvdCBvZiBmaWx0ZXJlZCBkYXRhIChieSBHZW5kZXIpXCIpIn0=
+eyJsYW5ndWFnZSI6InIiLCJwcmVfZXhlcmNpc2VfY29kZSI6ImxpYnJhcnkoZ2dwbG90MilcbmxpYnJhcnkoZHBseXIpXG5kYXRhc2V0QSA8LSByZWFkLmRlbGltKFwiaHR0cHM6Ly93d3cuZHJvcGJveC5jb20vcy9kbWIybXdtOGdhc3ZyMjIvZGF0YXNldEEudHh0P3Jhdz0xXCIpIiwic2FtcGxlIjoiI2RvIGZpbHRlcmluZyB0byByZW1vdmUgdGhvc2UgbGluZXMgd2l0aCBlcnJvciB2YWx1ZXNcbmRhdGFzZXRBZmlsdGVyZWQgPC0gZGF0YXNldEEgJT4lIGZpbHRlcihzdGFydFdlaWdodHMgPCA5OTk5ICYgZW5kV2VpZ2h0cyA8IDk5OTkpXG5cbiNkbyB0aGUgaGlzdG9ncmFtIGFnYWluXG5xcGxvdCh4PXN0YXJ0V2VpZ2h0cywgZGF0YT1kYXRhc2V0QWZpbHRlcmVkLCBnZW9tPVwiaGlzdG9ncmFtXCIpIn0=
 </div>
+</div>
+<div id="transforming-our-data" class="section level2">
+<h2>Transforming our data</h2>
 <p>The second thing to notice is that the data needs to be transformed somehow in order to see the weight loss effect. Here I define a new variable called <code>weightChange</code>, which is just <code>startWeights - endWeights</code>. Because timeElapsed is variable, I also try to scale <code>weightChange</code> by the <code>timeElapsed</code> in order to look for a possible linear relationship between the two.</p>
-<p>An optional step is to omit NAs, which occur in gender.</p>
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJkYXRhc2V0QSA8LSBkYXRhc2V0QSAlPiUgbXV0YXRlKHdlaWdodENoYW5nZSA9IHN0YXJ0V2VpZ2h0cyAtIGVuZFdlaWdodHMsIFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgd2VpZ2h0Q2hhbmdlUGVyRGF5ID0gd2VpZ2h0Q2hhbmdlIC8gdGltZUVsYXBzZWQpXG5kYXRhc2V0QSA8LSBuYS5vbWl0KGRhdGFzZXRBKVxuXG4jc2hvdyB0aGF0IHRoZXJlIGlzIGEgd2VpZ2h0Q2hhbmdlIGVmZmVjdCBpbiB0aG9zZSB0cmVhdGVkIFxuI3ZlcnN1cyB0aG9zZSB3aG8gYXJlIG5vdFxuZ2dwbG90KGRhdGFzZXRBLCBhZXMoeCA9IHRyZWF0bWVudCwgeT0gd2VpZ2h0Q2hhbmdlKSkgKyBnZW9tX2JveHBsb3QoKSArXG4gIGdndGl0bGUoXCJCb3hwbG90IG9mIFdlaWdodCBMb3NzIChsYnMpXCIpIn0=
+eyJsYW5ndWFnZSI6InIiLCJwcmVfZXhlcmNpc2VfY29kZSI6ImxpYnJhcnkoZ2dwbG90MilcbmxpYnJhcnkoZHBseXIpXG5kYXRhc2V0QSA8LSByZWFkLmRlbGltKFwiaHR0cHM6Ly93d3cuZHJvcGJveC5jb20vcy9kbWIybXdtOGdhc3ZyMjIvZGF0YXNldEEudHh0P3Jhdz0xXCIpIiwic2FtcGxlIjoiZGF0YXNldEF0cmFuc2Zvcm1lZCA8LSBkYXRhc2V0QSAlPiUgXG4gIGZpbHRlcihzdGFydFdlaWdodHMgPCA5OTk5ICYgZW5kV2VpZ2h0cyA8IDk5OTkpICU+JVxuICBtdXRhdGUod2VpZ2h0Q2hhbmdlID0gc3RhcnRXZWlnaHRzIC0gZW5kV2VpZ2h0cylcblxucXBsb3QoeD10cmVhdG1lbnQsIHk9d2VpZ2h0Q2hhbmdlLCBkYXRhPWRhdGFzZXRBdHJhbnNmb3JtZWQpIn0=
 </div>
+</div>
+<div id="so-is-there-a-difference-between-treatment-and-control" class="section level2">
+<h2>So is there a difference between treatment and control?</h2>
 </div>
 
 
