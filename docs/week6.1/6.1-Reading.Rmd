@@ -1,0 +1,19 @@
+---
+title: "Week 6.1 Reading"
+author: "Ted Laderas"
+date: "`r Sys.Date()`"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+The reading assignment this week is McGonigle, "Ethical Applications of Informatics".
+
+Read and understand the following sections. We will be discussing a case in class and you will be graded on your collective contributions to the discussion.
+
+1. Ethical Dilemmas and Morals
+1. Ethical Decision Making
+1. Theoretical Approaches to Healthcare Ethics (especially Beauchamp & Childress' four guiding principles)
+1. Applying Ethics to Informatics (including Box 5-1)

@@ -1,0 +1,84 @@
+---
+title: "Ethics in Informatics"
+author: "Ted Laderas"
+date: "2016/12/12"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+```
+
+---
+# Learning Objectives
+
++ What are legal issues in informatics?
++ What are ethical issues in informatics?
+    + Four prinicples in understanding Ethical Cases
++ Case Study 1: Understanding Patient Rights to Privacy
++ Case Study 2: Genetic Information about patients
+
+---
+# Reading
+
+McGonigle: Ethical Applications in Informatics.
+
+---
+
+# Context: Patient Rights
+
+- 
+
+---
+
+# Legal protections for patients
+
+- HIPAA
+- GINA
+
+---
+
+# However
+
+- There are many grey areas which there are no legal protections
+- 
+
+---
+
+# Ethical Decision Making
+
+
+
+
+---
+
+class: inverse, center, middle
+
+# Four main principles 
+
+Beauchamp & Childress outline four main principles for evaluating an ethical decision:
+
+- Autonomy
+    - Does our decision affect patient independence?
+- Beneficience
+    - Does our decision do good for our patient?
+- Nonmaleficence
+    - Does our decision do no harm to our patient?
+- Justice
+    - Is our decision fair and equitable to our patient?
+
+---
+
+
+
+---
+
+# References
+
+https://prezi.com/nrjd5n8r8gw_/ethical-applications-in-informatics/
