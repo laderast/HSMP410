@@ -1,0 +1,53 @@
+---
+title: "6.1 Ethics In Class Assignment"
+date: "5/7/2018"
+output:
+  word_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Analyzing an Ethical Case
+
+You are all going to contribute to this assignment as a group. Agreement will be required to fill in all of the fields below.
+
+Be respectful of each other's viewpoints and listen to each other. Make it safe for everyone to contribute. 
+
+At the end of the session, please save the link as a Word document and submit for Week 6.1
+
+## The Issue
+
+Medical Students at a University used Google Calendar to schedule their patients, including relevant clinical information. As a result, private patient information was made publicly accessible. 
+
+As a response, University Administration made the use of a secure calendaring system and email program mandatory across the university. 
+
+## The Stakeholders
+
+1. List the stakeholders involved in this issue.
+
+## List the relevant facts and outcomes
+
+2. What were the outcomes of the issue?
+
+## What Went Wrong?
+
+3. Who was affected and how? 
+4. What was the underlying issue?
+
+## Were there any conflicts with the principles?
+
+5. Were there any conflicts?
+
+- autonomy
+- beneficence
+- non-maleficence
+- justice
+
+## What was the response?
+
+5. What happened in response to the issue?
+6. Was the action in line with the principles?
+7. What was the consequence of the response?
+8. Were there any alternative responses?

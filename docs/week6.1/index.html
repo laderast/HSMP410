@@ -1,21 +1,26 @@
----
-title: "Ethics in Informatics"
-author: "Ted Laderas"
-date: "`r Sys.Date()`"
-output:
-  xaringan::moon_reader:
-    lib_dir: libs
-    css: [default, metropolis, metropolis-fonts]
-    chakra: libs/remark-latest.min.js
-    nature:
-      highlightStyle: github
-      highlightLines: true
-      countIncrementalSlides: false
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Ethics in Informatics</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Ted Laderas" />
+    <meta name="date" content="2018-05-07" />
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/remark-css/metropolis.css" rel="stylesheet" />
+    <link href="libs/remark-css/metropolis-fonts.css" rel="stylesheet" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Ethics in Informatics
+### Ted Laderas
+### 2018-05-07
+
 ---
 
-```{r setup, include=FALSE}
-options(htmltools.dir.version = FALSE)
-```
+
+
 
 # Learning Objectives
 
@@ -100,7 +105,7 @@ What does informatics have to do with ethics?
 ---
 # Four main principles
 
-Beauchamp & Childress outline four main principles for evaluating an ethical decision:
+Beauchamp &amp; Childress outline four main principles for evaluating an ethical decision:
 
 #### Beneficience
     - Does our decision do good for our patient?
@@ -193,7 +198,7 @@ Beauchamp & Childress outline four main principles for evaluating an ethical dec
     - system design prevented them from doing so
 - Beneficence
     - clinicians wanted to deliver correct dosage
-    - in conflict with system design & usage
+    - in conflict with system design &amp; usage
 - Autonomy?
 - Justice?
 ---
@@ -258,9 +263,9 @@ See link in D2L.
 ---
 # What happened?
 
-- Lewin T. Commission sues railroad to end genetic testing in work injury cases. New York Times. February 10, 2001:A7. => violation of the Americans With Disabilities Act
+- Lewin T. Commission sues railroad to end genetic testing in work injury cases. New York Times. February 10, 2001:A7. =&gt; violation of the Americans With Disabilities Act
 
-- Girion L. Railroad Settles Suit Over Genetic Testing. LA Times. May 9, 2002. => Workers paid between $5,900 to $75,000, depending on whether they were tested
+- Girion L. Railroad Settles Suit Over Genetic Testing. LA Times. May 9, 2002. =&gt; Workers paid between $5,900 to $75,000, depending on whether they were tested
 
 .footnote[[Balancing Health, Research, and Patient Privacy in the Genomics Era](https://github.com/OHSUBD2K/BDK03-Ethical-Issues-in-Use-of-Big-Data/blob/master/BDK03-2.pptx)]
 ---
@@ -287,3 +292,40 @@ What does that mean?
 - [Balancing Health, Research, and Patient Privacy in the Genomics Era](https://github.com/OHSUBD2K/BDK03-Ethical-Issues-in-Use-of-Big-Data/blob/master/BDK03-2.pptx)
 - [http://ethicalsystems.org/tags/ethical-systems-design](Ethical Systems Design)
 - [Therac-25](http://campus.murraystate.edu/academic/faculty/wlyle/540/2015/Team4Slides.pdf)
+    </textarea>
+<script src="libs/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function() {
+  var d = document, s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})();</script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+  }
+});
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
