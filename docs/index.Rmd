@@ -41,6 +41,13 @@ Parts of this tutorial came from Mikhail Popov's excellent [Data Literacy Tutori
 ## Week 4.2 A Guided Tour through Data Science
 
 - [Activity](http://laderast.github.io/HSMP410/week4.2/)
-- [Rmarkdown](http://github.com/laderast/HSMP410/docs/index.Rmd)
+- [Rmarkdown](http://github.com/laderast/HSMP410/docs/week4.2/index.Rmd)
 
 This is a guided tour about some of the basic issues in data science. It uses `datacamp-light` and `tutorial` along with the `tidyverse` to show some ways to visualize and manipulate data.
+
+## Week 6.1 An Introduction to Ethics
+
+- [Slides and Activity](http://laderast.github.io/HSMP410/week6.1/)
+- [Rmarkdown](http://github.com/laderast/HSMP410/docs/week6.1/index.Rmd)
+
+This is a short introduction to ethical decision making and the role informatics can play in it. The in-class group activity is doing a [short ethical analysis](http://github.com/laderast/HSMP410/docs/week6.1/assignment.Rmd).
