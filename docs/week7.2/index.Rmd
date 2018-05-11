@@ -1,0 +1,88 @@
+---
+title: "What is an Ontology?"
+subtitle: "and why do we care?"
+author: "Ted Laderas"
+date: "`r Sys.Date()`"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+```
+
+---
+# Learning Objectives
+
+- The problem: we are bad at standardizing the way we refer to things
+- What is an Ontology?
+    - And why should I care?
+- What kinds of work do ontologies enable?
+- How can ontologies enable novel work?
+
+---
+# How do we represent what we know?
+
+- We don't always use the same words to refer to the same thing
+    - Example: You might say: "pinky", "4th finger", "little finger"
+- We don't always use the same word in same way
+    - Example: "lead" can be an element or a word
+- This is a problem
+---
+# Why is this important?
+
+- If we want to know how many people at a hospital broke their pinky, that's a problem if everyone used different terms in their notes!
+- If we want to identify lead levels in patients as opposed to patients who went to leadership conferences, that's a problem
+- These examples are silly, but you get the point
+---
+# We need to represent what we know
+
+- Representing what we know [concepts] 
+- Representing how [concepts] are <related to each other>
+- Example: 
+    - [pinky finger]<is part of>[hand] 
+    - [pinky finger]<is a synonym of>[little finger]
+---
+
+
+---
+# Gene Ontologies: Bringing Meaning to Groups of Genes
+
+- In analysis, we often identify sets of genes that are behaving differently in two or more conditions
+- Gene sets can be large (50 or more), and just looking at the labels is confusing to biologists
+- We use the Gene Ontologies to highlight commonalities and patterns of these gene sets
+    - We have annotated genes with what we know
+    
+---
+# Gene Ontology: Expression Modules
+
+We can identify genes that behave similarly, but what do they have in common?
+---
+# Ontologies work best like Lego
+
+- They are glue and Lego
+- They are even better when linked together
+- They can actually help link data together
+    - Connecting disease phenotypes in mice to real diseases in humans
+    - Given a disease, what genes should we study in mice?
+---
+# Ontologies enable serendipity
+
+- Can lead us to novel hypotheses
+- Can potentially connect people in diverse fields
+- Avoid the "school of fish" versus "flock of birds" replication
+---
+# Ontologies are Hard 
+
+- We can try to partially build them automatically
+- They still require humans to confirm what's real and what's not
+    - Curation (confirming relationships are real) is the hardest part
+---
+# Activity
+
+Split into two groups and learn about 
