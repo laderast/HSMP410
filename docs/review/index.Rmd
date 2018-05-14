@@ -14,15 +14,18 @@ library(tidyverse)
 
 ## Week 1.2 Introduction to Bioinformatics
 
+1. What is a SNP? What is a variant?
 1. What is an Odds Ratio and why do we use it to quantify association?
+
 
 ## Week 2.2 Introduction to Genomics
 
 1. What are some differences between a mutation and a sequencing error?
+1. How can a mutation in DNA cause a malfunction in the protein? 
 
 ## Week 4.1 Data Literacy and Visualization
 
-Given the following boxplot, what do you conclude?
+Given the following boxplot, what do you conclude? Is there a difference between Sepal Length between species?
 
 ```{r}
 iris %>% ggplot(aes(x=Species, y=Sepal.Length, fill=Species)) + geom_boxplot()

@@ -11,44 +11,43 @@ output:
       highlightLines: true
       countIncrementalSlides: false
 ---
-
 ```{r setup, include=FALSE}
 options(htmltools.dir.version = FALSE)
 ```
 
----
 # Learning Objectives
 
 - The problem: we are bad at standardizing the way we refer to things
-- What is an Ontology?
+- Part of the Solution: what is an ontology?
     - And why should I care?
 - What kinds of work do ontologies enable?
 - How can ontologies enable novel work?
 
+This material was adapted from [BD2K14-Ontologies-101](http://github.com/OHSUBD2K/BD2K-Ontologies-1010/) by Melissa Haendel and Nicole Vasilevsky
 ---
 # How do we represent what we know?
 
 - We don't always use the same words to refer to the same thing
     - Example: You might say: "pinky", "4th finger", "little finger"
 - We don't always use the same word in same way
-    - Example: "lead" can be an element or a word
+    - Example: "lead" can be an atomic element or a verb
 - This is a problem
 ---
 # Why is this important?
 
-- If we want to know how many people at a hospital broke their pinky, that's a problem if everyone used different terms in their notes!
-- If we want to identify lead levels in patients as opposed to patients who went to leadership conferences, that's a problem
+- If we want to know how many people at a hospital broke their pinky, that's a problem if everyone used different terms in their EHR notes!
+- If we want to identify patients with abnormal lead levels as opposed to patients who went to leadership conferences, that's a problem
 - These examples are silly, but you get the point
 ---
 # We need to represent what we know
 
 - Representing what we know [concepts] 
+    - [pinky finger]
+    - [hand]
 - Representing how [concepts] are <related to each other>
 - Example: 
     - [pinky finger]<is part of>[hand] 
     - [pinky finger]<is a synonym of>[little finger]
----
-
 
 ---
 # Gene Ontologies: Bringing Meaning to Groups of Genes
@@ -63,26 +62,46 @@ options(htmltools.dir.version = FALSE)
 
 We can identify genes that behave similarly, but what do they have in common?
 ---
+# Ontologies are Graphs
+
+This is important! Traversing the ontology graph with algorithms can enable us to infer similarities and differences automatically.
+
+---
 # Ontologies work best like Lego
 
-- They are glue and Lego
+- Ontologies are glue and Lego
 - They are even better when linked together
 - They can actually help link data together
     - Connecting disease phenotypes in mice to real diseases in humans
-    - Given a disease, what genes should we study in mice?
+    - Given a human disease, what are the analogous genes should we study in mice?
 ---
-# Ontologies enable serendipity
+# Ontologies Enable Serendipity
 
-- Can lead us to novel hypotheses
+- Enables inference (finding analogies)
+- Can lead us to novel hypotheses and how to test them!
 - Can potentially connect people in diverse fields
-- Avoid the "school of fish" versus "flock of birds" replication
+- Avoid the "school of fish" versus "flock of birds" duplication of effort
 ---
 # Ontologies are Hard 
 
-- We can try to partially build them automatically
+- We can partially build them automatically
+    - Use of automated algorithms that look for relationships in text
 - They still require humans to confirm what's real and what's not
     - Curation (confirming relationships are real) is the hardest part
+- Also, not everyone agrees - coming to consensus about concepts is hard
+- Finding money and people who are passionate in a field who know stuff is hard
+- But it's worth it!
+---
+# Monarch Initiative 
+
+OHSU (moving to OSU) project with multiple centers contributing
+
+- HPO: Human Phenotype Ontology
+- MONDO: 
 ---
 # Activity
 
-Split into two groups and learn about 
+Split into two groups and learn about two concepts using the 
+
+http://compbio.charite.de/hpoweb/
+http://compbio.charite.de/phenomizer/ 
