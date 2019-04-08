@@ -1,0 +1,22 @@
+---
+title: "Week 2.1 Reading Assignment"
+author: "Ted Laderas"
+date: "`r Sys.Date()`"
+output: word_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+There are two short reading assignments:
+
+1. Read about the NHANES dataset in the pamphlet in the week 2.1 folder.
+
+2. Read the following sections in Exploratory Data Analysis: https://r4ds.had.co.nz/exploratory-data-analysis.html 
+
+Don't worry about the code, just look at the visualizations and try to understand them.
+
+a) 7.1 Introduction
+b) 7.2 Questions
+c) 7.6 Patterns
