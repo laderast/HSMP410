@@ -284,12 +284,15 @@ Are people interested in an optional session?
 ## Where can you get these skills?
 
 - Classes
+  - [BMI 569 - Data Analytics](https://laderast.github.io/AnalyticsCourse/) (OHSU)
+  - [Introduction to Scientific Computing Short Course](https://trec.pdx.edu/events/professional-development/data-science-1-2019)
+  - [SYSC 435/535: Modeling and Simulation with R and Python](https://www.pdx.edu/sysc/sysc-435535-modeling-and-simulation-with-r-and-python-0)
 - Workshops
+  - [R-Ladies PDX](https://rladies-pdx.rbind.io/about/)
+  - [PDX-R User Group](https://pdxrlang.com/)
 - Conferences
-- Online Classes
-  - 
+- Online Classes (Do as a group - find a cohort)
+  - [Chromebook Data Science](https://jhudatascience.org/chromebookdatascience/)
+  - ~~DataCamp~~ (Cannot currently reccommend)
 
-## Statistics is only helpful if
-
-You're convinced that the effect you're interested is real.  
 
