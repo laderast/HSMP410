@@ -35,7 +35,13 @@ knitr::opts_chunk$set(echo = FALSE, message=FALSE)
 - We're ignoring how particpants were chosen/sampled from the larger population
     + We'll talk a a little about this later.
 
-## NHANES is a valuable dataset in many ways
+## What is a Data Dictionary?
+
+*Data Dictionary*: a table where each variable in the dataset is defined.  
+
+Always ask for the data dictionary if it exists. Assume nothing!
+
+## NHANES Data Dictionary
 
 ```{r echo=FALSE}
 library(dplyr)
@@ -56,7 +62,7 @@ knitr::kable(data_dictionary)
 
 We can understand an outcome and look at its association with measured variables in the data.
 
-We'll look at Depression today, but there is also Physical Activity and Diabetes Status as well
+We'll look at Depression today, but there is also Physical Activity and Diabetes Status as possible outcomes.
 
 ## Before we Start
 
