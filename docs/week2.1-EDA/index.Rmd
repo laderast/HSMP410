@@ -172,7 +172,24 @@ Many reasons for the data being missing from a variable!
 
 ## Assessing Missing Data: NaNiar
 
+![](img/naniar.png)
 
+- Look at percentages missing within combinations of categories
+- Highlight potential problematic relationships
+- Are we missing data where we least expect it?
+
+## Assessing Missing Data: NaNiar
+
+![](img/missing_scatter.png)
+
+## What do you do if the data is missing?
+
+Depends on what you want to do:
+
+- Only look at rows that have everything (complete-cases)
+- Potentially can impute (replace) missing values
+  - mean, median, mode (categorical)
+- Remove rows that have lots of missing information
 
 ## Continuous Tab
 
@@ -217,11 +234,12 @@ If you have a lot of depressed episodes, do you also get less sleep?
 
 Each group should present the findings from 1 interesting question:
 
+1. What was your question?
+1. What variables did you look at? How were they defined?
 1. Where did you find it in the app? 
-2. What variables did you look at? How were they defined?
-3. What did you expect in terms of the relationship?
-4. For another variable, assess the association of your non-`Depressed` variable with it.
-5. What did you find?
+1. What did you expect in terms of the relationship?
+1. For another variable, assess the association of it with your non-outcome.
+1. Did you find a relationship between your variable and outcome? Show the plot that convinced you and write one or two sentences about it.
 
 ## Some Final Notes about NHANES
 
@@ -242,3 +260,36 @@ R package that lets you explore your data:
 http://laderast.github.io/burro
 
 ![](img/burro3.png)
+
+Are people interested in an optional session?
+
+## What is Data Science?
+
+- Using data to make decisions or answer questions
+- Example: try and predict admitted patients who are at risk for readmission
+    - Make focused decisions on their care to prevent readmission
+- Example 
+
+## What are Data Science Skills?
+
+> - Curiosity and a willingness to question dogma (Angela Bassa)
+> - Domain knowledge
+> - Data Importing and Cleaning
+> - Exploratory Data Analysis (Data Detective Work)
+> - Data Filtering and Querying
+> - Statistics
+> - Machine Learning
+> - Communicating the story in the data (Data Storytelling)
+
+## Where can you get these skills?
+
+- Classes
+- Workshops
+- Conferences
+- Online Classes
+  - 
+
+## Statistics is only helpful if
+
+You're convinced that the effect you're interested is real.  
+
