@@ -266,9 +266,10 @@ Are people interested in an optional session?
 ## What is Data Science?
 
 - Using data to make decisions or answer questions
-- Example: try and predict admitted patients who are at risk for readmission
+- Example: try and predict admitted patients who are at risk for readmission from electronic health records
     - Make focused decisions on their care to prevent readmission
-- Example 
+- Example: Are genomic variants in a gene predictive of disease in a larger population?
+    - Should people with a genomic variant have a different treatment?
 
 ## What are Data Science Skills?
 
