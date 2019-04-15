@@ -180,7 +180,7 @@ We'll only consider the *coding strand* for right now.
 2. the linear position on the chromosome (3490525)  
 3. the variant of interest (T)  
 
-By definition, a *SNP* has to occur in at least 10% of the population being studied. This is in comparison to the base that is most frequently observed, which is called the *wild-type*.]
+By definition, a *SNP variant* has to occur in at least 10% of the population being studied. This is in comparison to the base that is most frequently observed, which is called the *wild-type*.]
 
 .pull-right[<img src="image/snpDavidHall.png" height="100%" width="100%">
 ]
@@ -276,6 +276,14 @@ layout: false
 .pull-right[<img src="image/bmi-histogram.png" height="100%" width="100%">]
 
 .footnote[https://thomaselove.github.io/431notes/dataviz.html]
+---
+# Phenotyping: PheKB
+
+[Database from the eMERGE consortium](https:/phekb.org) defining ways to pull phenotyped groups out of an EHR:
+
+<img src="image/t2d_001.png" height = 500 alt = "Type 2 Diabetes Phenotyping Algorithm">
+
+.footnote[https://phekb.org/phenotype/type-2-diabetes-mellitus]
 ---
 
 # You need to find patients 
@@ -407,7 +415,7 @@ tabFrame %>%
 
 # Which SNPs are important?
 
-We scan each SNP, and conduct a statistical test of association to produce a p-value using a t-test of frequency between SNP+/Disease+ and SNP+/Disease-. 
+We scan each SNP, and conduct a statistical test of association to produce a p-value using a test of assocation (Fisher's Exact or Chi-Squared) between SNP Variant and Disease Status. 
 
 We need to set a very small criteria of significance. Then we scan across the genome and find the really small p-values:
 
@@ -425,7 +433,7 @@ Estimate of how different the proportions of SNP+/Disease+ and SNP+/Disease- are
 $OR = \frac{Odds(SNP+/Disease+)}{Odds(SNP+/Disease-)}$
 
 ---
-# Odds Review
+# Probabilities
 
 Odds are different than probabilities. Probabilities are expressed in terms of the total: 
 
@@ -435,8 +443,7 @@ If we have 10 cases out of 100 total patients, the probability is
 - probability of being a case = $\frac{10}{100} = 0.1$  
 
 ---
-
-# Odds on the other hand:
+# Odds are different than probabilities
 
 - Odds of being a case = $\frac{numCases}{numControls}$  
 - Odds of being a case = $\frac{10}{90} = 0.1111$  
@@ -579,7 +586,6 @@ Human genetics are complex - need to understand how combinations of variants wor
     - Use multiple SNPs as a test for a disease
 
 ---
-
 # Open Questions
 
 - How do we make GWAS more equitable to all?  
