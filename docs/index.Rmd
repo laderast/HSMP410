@@ -13,14 +13,30 @@ knitr::opts_chunk$set(echo = TRUE)
 
 This is a webpage describing the course material I have been developing for HMSP410, Health Informatics. This is a course that is co-taught with [Bill Hersh](http://informaticsprofessor.blogspot.com) for the [OHSU/PSU School of Public Health](https://ohsu-psu-sph.org). They are intended for students with very little math and programming background. Where possible, I've tried to have hands-on activities for each of the subjects.
 
-## Week 1.2 Introduction to Bioinformatics
 
-- [Slides and Activity](http://laderast.github.io/HSMP410/week1.2/)
-- [Rmarkdown](http://github.com/laderast/HSMP410/week1.2/index.Rmd)
+## Week 1.2 Introduction to Visualization/Data Literacy
+
+- [Shinyapps Version](https://tladeras.shinyapps.io/dataLiteracyTutorial/)
+- [LearnR Repo](https://github.com/laderast/dataLiteracyTutorial/)
+
+In this lecture, we talk about some basic forms of visualization and how to understand them. We go from categorical and continuous data to understanding the relationships between variables. I used `shiny` and `learnR` to produce some interactive visualizations that allow students to explore different visualizations.
+
+Parts of this tutorial came from Mikhail Popov's excellent [Data Literacy Tutorial](https://github.com/bearloga/wmf-allhands18) and a LearnR package I did with Jessica Minnier called [`DSIExplore`](https://github.com/laderast/DSIExplore). 
+
+
+## Week 2.1 Introduction to Exploratory Data Analysis
+
+- [Slides](http://laderast.github.io/week2.1-EDA/)
+- [NHANES EDA App](http://tladeras.shinyapps.io/nhanes_explore)
+
+## Week 3.1 Introduction to Bioinformatics
+
+- [Slides and Activity](http://laderast.github.io/PHE427/week3.1-GWAS/)
+- [Rmarkdown](http://github.com/laderast/PHE427/week3.1-GWAS/index.Rmd)
 
 This is a brief introduction to genotyping and phenotyping through the lens of Genome Wide Association Studies. In the activity, students are given SNPs to explore using the EBI GWAS browser and we crowdsource our results.
 
-## Week 2.2 Introduction to Genomics
+## Week 3.2 Introduction to Genomics
 
 - [Slides](http://laderast.github.io/HSMP410/week2.2/)
 - [RMarkdown](http://github.com/laderast/HSMP410/docs/week2.2/index.Rmd)
@@ -28,22 +44,6 @@ This is a brief introduction to genotyping and phenotyping through the lens of G
 - [KRAS discussion slides](http://github.com/laderast/HSMP410/docs/week2.2/2.2-kras-and-cancer.pdf)
 
 In this lecture, we talk about issues with Genotyping in the context of cancer mutations, in particular the idea of *depth* and *coverage*. In the activity, students are given paired tumor/normal sequences samples and they need to compare the two sets of sequences to identify a mutation in the KRAS gene. This activity was adapted from [yourgenome.org](https://www.yourgenome.org/activities/kras-cancer-mutation).
-
-## Week 4.1 Introduction to Visualization/Data Literacy
-
-- [Shinyapps Version](https://tladeras.shinyapps.io/dataLiteracy/)
-- [LearnR Repo](https://github.com/laderast/dataLiteracy/)
-
-In this lecture, we talk about some basic forms of visualization and how to understand them. We go from categorical and continuous data to understanding the relationships between variables. I used `shiny` and `learnR` to produce some interactive visualizations that allow students to explore different visualizations.
-
-Parts of this tutorial came from Mikhail Popov's excellent [Data Literacy Tutorial](https://github.com/bearloga/wmf-allhands18) and a LearnR package I did with Jessica Minnier called [`DSIExplore`](https://github.com/laderast/DSIExplore). 
-
-## Week 4.2 A Guided Tour through Data Science
-
-- [Activity](http://laderast.github.io/HSMP410/week4.2/)
-- [Rmarkdown](http://github.com/laderast/HSMP410/docs/week4.2/index.Rmd)
-
-This is a guided tour about some of the basic issues in data science. It uses `datacamp-light` and `tutorial` along with the `tidyverse` to show some ways to visualize and manipulate data.
 
 ## Week 6.1 An Introduction to Ethics
 

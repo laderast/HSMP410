@@ -1,0 +1,9 @@
+Number	Phenotype	SNP name	Variant
+1	Obesity	rs7185735	G
+2	Schizophrenia	rs2237457	T
+3	Cardiovascular Risk	rs6843082	G
+4	Cardiovascular Risk	rs6025	T
+5	Type 2 Diabetes Mellitus	rs7903146	T
+6	Scoliosis	rs11190870	T
+7	Alcohol Dependence	rs75433892	A
+8	Lupus	rs7329174	G

@@ -1,0 +1,16 @@
+---
+title: "Week 3.1 Readings"
+author: "Ted Laderas"
+date: "April 14, 2019"
+output: word_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Please take a look at the following readings before class. Make sure to write down any questions you have
+about them.
+
+1) Genome Wide Association Studies: https://www.genome.gov/20019523/
+2) Understanding Odds Ratios, Sainani (in 3.1/readings folder)

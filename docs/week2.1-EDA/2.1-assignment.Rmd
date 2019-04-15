@@ -1,0 +1,23 @@
+---
+title: "Week 2.1 Assignment - EDA"
+author: "Ted Laderas"
+date: "April 8, 2019"
+output: word_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Team members:
+
+Each member of the team should fill out the assignment separately and submit to D2L. Make sure to name it with your last name (example: `2.1-assignment-laderas.docx`)
+
+Remember, you can copy plots directly from the app into your word document by right clicking on the plot and choosing "Copy Image" and pasting it into the file.
+
+1. What was your question? (0.5 pts)
+1. What variables did you look at? How were they defined? (0.5 pts)
+1. Where did you find it in the app? (0.5 pts)
+1. What did you expect in terms of the relationship? (1 pts)
+1. For another variable, assess the association of it with your non-outcome. (0.5 pts)
+1. Did you find a relationship between your variable and outcome? Show the plot that convinced you and write one or two sentences about it. (2 pts)
