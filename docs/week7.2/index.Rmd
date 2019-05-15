@@ -19,6 +19,7 @@ knitr::opts_chunk$set(eval=TRUE)
 
 - Explain why the replicability crisis is important
 - Describe what metadata is and why it matters to the replicability crisis
+- Name 3 types of experimental metadata
 - Describe what open science efforts there are out there
 - Identify Barriers that prevent open science adoption
 
