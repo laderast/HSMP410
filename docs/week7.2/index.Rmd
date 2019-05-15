@@ -62,7 +62,7 @@ knitr::opts_chunk$set(eval=TRUE)
 
 .footnote[[A new approach to the marshmallow test Leads to complicated findings](https://www.psychologicalscience.org/publications/observer/obsonline/a-new-approach-to-the-marshmallow-test-yields-complex-findings.html)]
 ---
-# Why do we have the reproducibility crisis?
+# Why do we have the replicability crisis?
 
 - Pressure to publish in prestigious journals
 - Requires 'impactful' results to get published
@@ -71,6 +71,15 @@ knitr::opts_chunk$set(eval=TRUE)
   - Sample Sizes are too small to justify conclusion
   - p-hacking: running too many statistical tests and only reporting the good ones
 - **Not enough detail to rerun the experiment and analysis**
+
+---
+# Roger Peng on the Replicability Crisis
+
+> The replication crisis in science is concentrated in areas where (1) there is a tradition of controlled experimentation and (2) there is relatively little basic theory underpinning the field.
+
+![](image/replication_2x2.png)
+
+https://simplystatistics.org/2016/08/24/replication-crisis/
 
 ---
 # Spurious Correlations and False Findings
@@ -157,7 +166,7 @@ One example: What was the dosage of drug given to the patients at the two sites?
 - Community of Practices surrounding each
 
 ---
-```{r eval=TRUE, echo=FALSE, fig.height=3}
+```{r eval=TRUE, echo=FALSE, fig.retina=1.2}
 knitr::include_graphics("image/Open+Science+Ecosystem.jpg")
 ```
 
@@ -191,17 +200,21 @@ knitr::include_graphics("image/Open+Science+Ecosystem.jpg")
 # Open Data Repositories
 
 - [Recommended Data Repositories](https://www.nature.com/sdata/policies/repositories)
-- 
+- Repositories make data available for everyone to download
+  - Animal studies/Cell Line studies are easy to share
+  - Patient Datasets are difficult (HIPAA)
 
 ---
 # Open Software: rOpenSci
 
 - Community that develops software for scientific research
+- Review process, community discussion
 
 ---
-# Replication is still difficult
+# Replication is still difficult and expensive
 
 - [A long journey to reproducible results](https://www.nature.com/news/a-long-journey-to-reproducible-results-1.22478)
+- [The Economics of Reproducibility in Preclinical Research](https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1002165)
 
 ---
 # Barriers to Open Science
