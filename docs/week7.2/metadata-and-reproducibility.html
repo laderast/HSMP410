@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <title>Replicability, Metadata, and Open Science</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Ted Laderas" />
+    <meta name="date" content="2019-05-15" />
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/remark-css/default-fonts.css" rel="stylesheet" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Replicability, Metadata, and Open Science
+### Ted Laderas
+### 2019-05-15
+
+---
+
+
+
+# Learning Objectives
+
+- Explain why the replicability crisis is important
+- Describe what metadata is and why it matters to the reproducibility crisis
+- Describe what open science efforts there are out there
+- Identify Barriers that prevent open science adoption
+
+---
+# What is Reproduciblity?
+
+![Reproducibility Matrix](image/ReproducibleMatrix.jpg)
+---
+# Reproductibility versus Replicability
+
+- Reproducibility: Same Analysis, Same Data
+- Replicability: Same Analysis, Different Data
+
+.footnote[https://the-turing-way.netlify.com/reproducibility/03/definitions]
+---
+# What is the Replication Crisis?
+
+- Many key scientific findings cannot be replicated by other labs
+- Psychology: 
+
+
+---
+# Example: Marshmallow Test
+
+![](image/marshmallow-test.jpg)
+
+.footnote[https://www.sciencenews.org/article/kids-waiting-longer-classic-marshmallow-self-control-test]
+---
+# Marshmallow Test Study Findings
+
+- One marshmallow now, but two marshmallows if you wait
+- Walter Mischel: Self Control/delayed gratification leads to better outcomes later
+
+---
+# Replicating the Marshmallow Test
+
+- Study has been difficult to replicate
+  - Is it really just measuring socioeconomic status?
+- "[Conceptual Replication](http://journals.sagepub.com/doi/10.1177/0956797618761661)": self-control is not associated with better outcomes
+
+.footnote[[A new approach to the marshmallow test Leads to complicated findings](https://www.psychologicalscience.org/publications/observer/obsonline/a-new-approach-to-the-marshmallow-test-yields-complex-findings.html)]
+---
+# Why do we have the reproducibility crisis?
+
+- Pressure to publish in prestigious journals
+- Requires 'impactful' results to get published
+  - Bias against negative results
+- [Ioaniddis](https://www.google.com/url?q=https://doi.org/10.1371/journal.pmed.0040215&amp;sa=D&amp;ust=1509336365149000&amp;usg=AFQjCNHL97YgMrU1ukdTFcyylW4gn5TmQA): Studies rely on bad statistical practices
+  - Sample Sizes are too small to justify conclusion
+  - p-hacking: running too many statistical tests and only reporting the good ones
+- **Not enough detail to rerun the experiment and analysis**
+
+---
+# Spurious Correlations and False Findings
+
+
+![](image/eggroll-puppy.gif)
+
+.footnote[[You can't trust what you read about nutrition](https://fivethirtyeight.com/features/you-cant-trust-what-you-read-about-nutrition/)]
+
+---
+# What are some solutions to the crisis?
+
+- Better statistical practices
+  - Pre-registration of analyses
+  - Larger sample sizes
+  - More stringent cutoffs for statistics
+- Better education about reproducibility practices
+  - [The Turing Way](https://the-turing-way.netlify.com/)
+- **Metadata and Open Science Practices**
+  - Provide enough details about the experiment
+  - More transparency about how experiment was conducted
+
+.footnote[[Scientific method: Statistical errors](https://www.nature.com/news/scientific-method-statistical-errors-1.14700)]
+---
+# What is Metadata?
+
+- "Data about data"
+- “Metadata is structured information that describes, explains, locates, or otherwise makes it easier to retrieve, use, or manage an information resource” (NISO)
+- **Working definition: Information that lets us utilize a dataset effectively**
+
+---
+# Metadata Example
+
+Without the label metadata, we don't know what's in the can!
+
+![](image/metadata.png)
+---
+# What Kinds of Experimental Metadata Are there?
+
+- Date experiment was done
+- Time a measurement was made
+- Number of repeated measurements
+- Who conducted the experiment
+- Dosage of treatment
+- How many subjects were in study
+- How many subjects dropped out of study
+- Experimental design
+
+---
+# Metadata and studies (Activity)
+
+We want to know if we can combine data from two different sites that conducted the same experiment. The two sites are: 1) a local university and 2) a nursing home.
+
+The study consists of testing whether a weight-loss drug works compared to a placebo on patients from both sites.
+
+What metadata would you want to know about these two experiments? Think about the details you'd want at the experiment level, not the patient level.
+
+One example: What was the dosage of drug given to the patients at the two sites? Was it the same?
+---
+# Minimum Information Standards for Experiments
+
+- [Provide enough metadata](https://fairsharing.org/collection/MIBBI) for others to replicate your experiment
+- Software used, experimental design, dates samples run
+- Designed by consortia of experts
+- Example: [MIGen: Minimum Information about a Genotyping Experiment](http://migen.sourceforge.net/MIGenDownloads/MIGen_V09_Application_Example_Oct.2010.pdf)
+
+---
+# What drives minimum information standards?
+
+- Public Databases/Repositories of data
+  - Some require these minimum information standards
+- Government Mandate (NIH agencies)
+  - Data must be submitted to public repositories
+- **Open Science and Need for transparency**
+
+---
+# What is Open Science?
+
+- Openly sharing your research
+  - Open Publications 
+  - Open Experimental protocols 
+  - Open Software  
+  - Open Data
+- Community of Practices surrounding each
+
+---
+![](image/Open+Science+Ecosystem.jpg)&lt;!-- --&gt;
+
+.footnote[https://slideplayer.com/slide/7960613/25/images/3/Open+Science+Ecosystem.jpg]
+---
+# Benefits to Open Science
+
+- Transparency
+- Accessibility
+- Efficiency
+- Many minds on the same dataset
+- Community of Practice
+
+.footnote[https://www.fosteropenscience.eu/content/what-are-benefits-open-science]
+---
+# Open Access Publications
+
+- Preprint Servers (bioArxiv)
+  - The cutting edge of Science
+- Open Access Publications
+  - Public Library of Science (PLOS)
+
+---
+# Open protocols: Protocols.io
+
+![](image/group-screen.jpg)
+
+---
+# Open Data Repositories
+
+- [Recommended Data Repositories](https://www.nature.com/sdata/policies/repositories)
+- Take a look at one - 
+
+
+---
+# Open Software: rOpenSci
+
+- Community that develops software for scientific research
+
+---
+# Replication is still difficult
+
+- [A long journey to reproducible results](https://www.nature.com/news/a-long-journey-to-reproducible-results-1.22478)
+
+---
+# Barriers to Open Science
+
+- Researchers "don't have enough time"
+- Open Studies expose researchers to more detailed scrutiny
+- Perception of "Research Parasites"
+  - Secondary Use of data
+  - Studies cost money, sharing can be detrimental to career
+- Open Contributions are not recognized
+  - Promotion and Tenure guidelines
+- Funding incentives
+  - "Not in my job description"
+- Culture of shame/impostor syndrome  
+
+---
+# Research Parasites
+
+Cons of secondary use:
+
+- Generating Data costs Grant Money/Time
+- Secondary use of data is not beneficial to generators of data
+
+Pros:
+- "The act of rigorous secondary data analysis is critical for maintaining the accuracy and efficiency of scientific discovery." (Greene et al)
+- New discoveries from other people reusing data for analysis
+
+.footnote[[Celebrating Parasites](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5710834/)]  
+---
+# Leslie Chan: Openness can be exploited
+
+&gt; But if data is indeed the new oil, who owns the oil, and how should it be governed, and for whose benefit? What about issues of privacy, security, consent, misuse, and other important ethical issues and historical injustice? - [Leslie Chan](https://www.openlibhums.org/news/314/)
+
+- Openness is the new frontier
+  - Exploitation/Manifest Destiny
+- Open Access requires money
+  - Research institutions that have money are overrepresented
+- Companies may exploit openness and communities
+  - [DataCamp Debacle](https://www.buzzfeednews.com/article/daveyalba/datacamp-sexual-harassment-metoo-tech-startup)
+
+---
+# Take Home Points
+
+- Replication requires metadata
+- Metadata standards are driven by public databases
+- Open Science encourages transparency in process
+- Barriers to Open Science
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();</script>
+
+<script>
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
