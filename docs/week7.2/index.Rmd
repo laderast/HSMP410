@@ -40,7 +40,9 @@ knitr::opts_chunk$set(eval=TRUE)
 - Survey of 1500 scientists: 
   - 70% surveyed couldn't replicate a colleagues study
   - 50% couldn't replicate their own study
+- Reproducibility project: findings for only 39 out of 100 psychological studies could be replicated
 
+.footnote[https://www.apa.org/monitor/2015/10/share-reproducibility]
 ---
 # Example: Marshmallow Test
 
@@ -51,25 +53,36 @@ knitr::opts_chunk$set(eval=TRUE)
 # Marshmallow Test Study Findings
 
 - One marshmallow now, but two marshmallows if you wait
-- Walter Mischel: Self Control/delayed gratification leads to better outcomes later
+- Walter Mischel: [Self Control/delayed gratification](https://www.webcitation.org/62C0yfhcJ?url=http://duende.uoregon.edu./~hsu/blogfiles/Shoda%2CMischel%2C%26Peake%281990%29.pdf) leads to better outcomes in life
+  - Followed up with participants 18 years later
+  - Found increased "cognitive and academic competence" among the two marshmallow kids 
 
 ---
 # Replicating the Marshmallow Test
 
 - Study has been difficult to replicate
   - Is it really just measuring socioeconomic status?
-- "[Conceptual Replication](http://journals.sagepub.com/doi/10.1177/0956797618761661)": self-control is not associated with better outcomes
+  - Well-off children tend to get better education
+- "[Conceptual Replication Study](http://journals.sagepub.com/doi/10.1177/0956797618761661)": self-control is not associated with better outcomes
 
 .footnote[[A new approach to the marshmallow test Leads to complicated findings](https://www.psychologicalscience.org/publications/observer/obsonline/a-new-approach-to-the-marshmallow-test-yields-complex-findings.html)]
 ---
-# Why do we have the replicability crisis?
+# Why do we have the replication crisis?
 
-- Pressure to publish in prestigious journals
+Cultural:
+
+- Pressure to publish in prestigious journals such as Nature
 - Requires 'impactful' results to get published
   - Bias against negative results
+
+Statistical: 
+
 - [Ioaniddis](https://www.google.com/url?q=https://doi.org/10.1371/journal.pmed.0040215&sa=D&ust=1509336365149000&usg=AFQjCNHL97YgMrU1ukdTFcyylW4gn5TmQA): Studies rely on questionable research practices
   - Sample Sizes are too small to justify conclusion
   - p-hacking: running too many statistical tests and only reporting the good ones
+
+Experimental:
+
 - **Not enough detail to rerun the experiment and analysis**
 
 ---
@@ -163,7 +176,7 @@ One example: What was the dosage of drug given to the patients at the two sites?
   - Open Experimental protocols 
   - Open Software  
   - Open Data
-- Community of Practices surrounding each
+- Community of Practices surrounding each of these
 
 ---
 ```{r eval=TRUE, echo=FALSE, fig.retina=1.2}
