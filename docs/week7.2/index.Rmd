@@ -1,6 +1,5 @@
 ---
-title: "What is an Ontology?"
-subtitle: "and why do we care?"
+title: "Replicability, Metadata, and Open Science"
 author: "Ted Laderas"
 date: "`r Sys.Date()`"
 output:
@@ -11,97 +10,243 @@ output:
       highlightLines: true
       countIncrementalSlides: false
 ---
+
 ```{r setup, include=FALSE}
 options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(eval=TRUE)
 ```
-
 # Learning Objectives
 
-- The problem: we are bad at standardizing the way we refer to things
-- Part of the Solution: what is an ontology?
-    - And why should I care?
-- What kinds of work do ontologies enable?
-- How can ontologies enable novel work?
-
-This material was adapted from [BD2K14-Ontologies-101](http://github.com/OHSUBD2K/BD2K-Ontologies-1010/) by Melissa Haendel and Nicole Vasilevsky
----
-# How do we represent what we know?
-
-- We don't always use the same words to refer to the same thing
-    - Example: You might say: "pinky", "4th finger", "little finger"
-- We don't always use the same word in same way
-    - Example: "lead" can be an atomic element or a verb
-- This is a problem
----
-# Why is this important?
-
-- If we want to know how many people at a hospital broke their pinky, that's a problem if everyone used different terms in their EHR notes!
-- If we want to identify patients with abnormal lead levels as opposed to patients who went to leadership conferences, that's a problem
-- These examples are silly, but you get the point
----
-# We need to represent what we know
-
-- Representing what we know [concepts] 
-    - [pinky finger]
-    - [hand]
-- Representing how [concepts] are <related to each other>
-- Example: 
-    - [pinky finger]<is part of>[hand] 
-    - [pinky finger]<is a synonym of>[little finger]
+- Explain why the replicability crisis is important
+- Describe what metadata is and why it matters to the replicability crisis
+- Describe what open science efforts there are out there
+- Identify Barriers that prevent open science adoption
 
 ---
-# Gene Ontologies: Bringing Meaning to Groups of Genes
+# What is Replicability?
 
-- In analysis, we often identify sets of genes that are behaving differently in two or more conditions
-- Gene sets can be large (50 or more), and just looking at the labels is confusing to biologists
-- We use the Gene Ontologies to highlight commonalities and patterns of these gene sets
-    - We have annotated genes with what we know
-    
+![Reproducibility Matrix](image/ReproducibleMatrix.jpg)
 ---
-# Gene Ontology: Expression Modules
+# Reproducibility versus Replicability
 
-We can identify genes that behave similarly, but what do they have in common?
+- Reproducibility: Same Analysis, Same Data
+- Replicability: Same Analysis, Different Data
+
+.footnote[https://the-turing-way.netlify.com/reproducibility/03/definitions]
 ---
-# Ontologies are Graphs
+# What is the Replication Crisis?
 
-This is important! Traversing the ontology graph with algorithms can enable us to infer similarities and differences automatically.
+- Some key scientific findings cannot be replicated by other labs
+- Survey of 1500 scientists: 
+  - 70% surveyed couldn't replicate a colleagues study
+  - 50% couldn't replicate their own study
 
 ---
-# Ontologies work best like Lego
+# Example: Marshmallow Test
 
-- Ontologies are glue and Lego
-- They are even better when linked together
-- They can actually help link data together
-    - Connecting disease phenotypes in mice to real diseases in humans
-    - Given a human disease, what are the analogous genes should we study in mice?
+![](image/marshmallow-test.jpg)
+
+.footnote[https://www.sciencenews.org/article/kids-waiting-longer-classic-marshmallow-self-control-test]
 ---
-# Ontologies Enable Serendipity
+# Marshmallow Test Study Findings
 
-- Enables inference (finding analogies)
-- Can lead us to novel hypotheses and how to test them!
-- Can potentially connect people in diverse fields
-- Avoid the "school of fish" versus "flock of birds" duplication of effort
+- One marshmallow now, but two marshmallows if you wait
+- Walter Mischel: Self Control/delayed gratification leads to better outcomes later
+
 ---
-# Ontologies are Hard 
+# Replicating the Marshmallow Test
 
-- We can partially build them automatically
-    - Use of automated algorithms that look for relationships in text
-- They still require humans to confirm what's real and what's not
-    - Curation (confirming relationships are real) is the hardest part
-- Also, not everyone agrees - coming to consensus about concepts is hard
-- Finding money and people who are passionate in a field who know stuff is hard
-- But it's worth it!
+- Study has been difficult to replicate
+  - Is it really just measuring socioeconomic status?
+- "[Conceptual Replication](http://journals.sagepub.com/doi/10.1177/0956797618761661)": self-control is not associated with better outcomes
+
+.footnote[[A new approach to the marshmallow test Leads to complicated findings](https://www.psychologicalscience.org/publications/observer/obsonline/a-new-approach-to-the-marshmallow-test-yields-complex-findings.html)]
 ---
-# Monarch Initiative 
+# Why do we have the reproducibility crisis?
 
-OHSU (moving to OSU) project with multiple centers contributing
+- Pressure to publish in prestigious journals
+- Requires 'impactful' results to get published
+  - Bias against negative results
+- [Ioaniddis](https://www.google.com/url?q=https://doi.org/10.1371/journal.pmed.0040215&sa=D&ust=1509336365149000&usg=AFQjCNHL97YgMrU1ukdTFcyylW4gn5TmQA): Studies rely on questionable research practices
+  - Sample Sizes are too small to justify conclusion
+  - p-hacking: running too many statistical tests and only reporting the good ones
+- **Not enough detail to rerun the experiment and analysis**
 
-- HPO: Human Phenotype Ontology
-- MONDO: 
 ---
-# Activity
+# Spurious Correlations and False Findings
 
-Split into two groups and learn about two concepts using the 
 
-http://compbio.charite.de/hpoweb/
-http://compbio.charite.de/phenomizer/ 
+![](image/eggroll-puppy.gif)
+
+.footnote[[You can't trust what you read about nutrition](https://fivethirtyeight.com/features/you-cant-trust-what-you-read-about-nutrition/)]
+
+---
+# What are some solutions to the crisis?
+
+- Better statistical practices
+  - Pre-registration of analyses
+  - Larger sample sizes
+  - More stringent cutoffs for statistics
+- Better education about reproducibility practices
+  - [The Turing Way](https://the-turing-way.netlify.com/)
+- **Metadata and Open Science Practices**
+  - Provide enough details about the experiment
+  - More transparency about how experiment was conducted
+
+.footnote[[Scientific method: Statistical errors](https://www.nature.com/news/scientific-method-statistical-errors-1.14700)]
+---
+# What is Metadata?
+
+- "Data about data"
+- “Metadata is structured information that describes, explains, locates, or otherwise makes it easier to retrieve, use, or manage an information resource” (NISO)
+- **Working definition: Information that lets us utilize a dataset effectively**
+
+---
+# Metadata Example
+
+Without the label metadata, we don't know what's in the can!
+
+![](image/metadata.png)
+---
+# What Kinds of Experimental Metadata Are there?
+
+- Date experiment was done
+- Time a measurement was made
+- Number of repeated measurements
+- Who conducted the experiment
+- Dosage of treatment
+- How many subjects were in study
+- How many subjects dropped out of study
+- Experimental design
+
+---
+# Metadata and studies (Activity)
+
+We want to know if we can combine data from two different sites that conducted the same experiment. The two sites are: 1) a local university and 2) a nursing home.
+
+The study consists of testing whether a weight-loss drug works compared to a placebo on patients from both sites.
+
+What metadata would you want to know about these two experiments? Think about the details you'd want at the experiment level, not the patient level.
+
+One example: What was the dosage of drug given to the patients at the two sites? Was it the same?
+---
+# Minimum Information Standards for Experiments
+
+- [Provide enough metadata](https://fairsharing.org/collection/MIBBI) for others to replicate your experiment
+- Software used, experimental design, dates samples run
+- Designed by consortia of experts
+- Example: [MIGen: Minimum Information about a Genotyping Experiment](http://migen.sourceforge.net/MIGenDownloads/MIGen_V09_Application_Example_Oct.2010.pdf)
+
+---
+# What drives minimum information standards?
+
+- Public Databases/Repositories of data
+  - Some require these minimum information standards
+- Government Mandate (NIH agencies)
+  - Data must be submitted to public repositories
+- **Open Science and Need for transparency**
+
+---
+# What is Open Science?
+
+- Openly sharing your research
+  - Open Publications 
+  - Open Experimental protocols 
+  - Open Software  
+  - Open Data
+- Community of Practices surrounding each
+
+---
+```{r eval=TRUE, echo=FALSE, fig.height=3}
+knitr::include_graphics("image/Open+Science+Ecosystem.jpg")
+```
+
+.footnote[https://slideplayer.com/slide/7960613/25/images/3/Open+Science+Ecosystem.jpg]
+---
+# Benefits to Open Science
+
+- Transparency
+- Accessibility
+- Efficiency
+- Many minds on the same dataset
+- Community of Practice
+
+.footnote[https://www.fosteropenscience.eu/content/what-are-benefits-open-science]
+---
+# Open Access Publications
+
+- Preprint Servers (bioArxiv)
+  - The cutting edge of Science
+- Open Access Publications
+  - Public Library of Science (PLOS)
+
+---
+# Open protocols: Protocols.io
+
+```{r eval=TRUE, echo=FALSE, fig.retina=1.2}
+  knitr::include_graphics("image/group-screen.jpg")
+```
+
+---
+# Open Data Repositories
+
+- [Recommended Data Repositories](https://www.nature.com/sdata/policies/repositories)
+- 
+
+---
+# Open Software: rOpenSci
+
+- Community that develops software for scientific research
+
+---
+# Replication is still difficult
+
+- [A long journey to reproducible results](https://www.nature.com/news/a-long-journey-to-reproducible-results-1.22478)
+
+---
+# Barriers to Open Science
+
+- Researchers "don't have enough time"
+- Open Studies expose researchers to more detailed scrutiny
+- Perception of "Research Parasites"
+  - Secondary Use of data
+  - Studies cost money, sharing can be detrimental to career
+- Open Contributions are not recognized
+  - Promotion and Tenure guidelines
+- Funding incentives
+  - "Not in my job description"
+- Culture of shame/impostor syndrome  
+
+---
+# Research Parasites
+
+Cons of secondary use:
+
+- Generating Data costs Grant Money/Time
+- Secondary use of data is not beneficial to generators of data
+
+Pros:
+- "The act of rigorous secondary data analysis is critical for maintaining the accuracy and efficiency of scientific discovery." (Greene et al)
+- New discoveries from other people reusing data for analysis
+
+.footnote[[Celebrating Parasites](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5710834/)]  
+---
+# Leslie Chan: Openness can be exploited
+
+> But if data is indeed the new oil, who owns the oil, and how should it be governed, and for whose benefit? What about issues of privacy, security, consent, misuse, and other important ethical issues and historical injustice? - [Leslie Chan](https://www.openlibhums.org/news/314/)
+
+- Openness is the new frontier
+  - Exploitation/Manifest Destiny
+- Open Access requires money 
+  - Diversity/Inclusion: Volunteer work penalizes those who need to work
+  - Research institutions that have money are overrepresented
+- Companies may exploit openness and communities
+  - [DataCamp Debacle](https://www.buzzfeednews.com/article/daveyalba/datacamp-sexual-harassment-metoo-tech-startup)
+
+---
+# Take Home Points
+
+- Replication by another lab requires metadata
+- Metadata standards are driven by public databases
+- Open Science encourages transparency in process
+- Barriers to Open Science 
