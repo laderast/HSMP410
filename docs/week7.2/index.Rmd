@@ -199,6 +199,7 @@ knitr::include_graphics("image/Open+Science+Ecosystem.jpg")
 ---
 # Open Data Repositories
 
+- [Data should be FAIR](https://www.force11.org/group/fairgroup/fairprinciples): (Findable, Accessible, Interoperable, and Re-usable)
 - [Recommended Data Repositories](https://www.nature.com/sdata/policies/repositories)
 - Repositories make data available for everyone to download
   - Animal studies/Cell Line studies are easy to share
@@ -262,4 +263,4 @@ Pros:
 - Replication by another lab requires metadata
 - Metadata standards are driven by public databases
 - Open Science encourages transparency in process
-- Barriers to Open Science 
+- Barriers to Open Science are cultural and technical
